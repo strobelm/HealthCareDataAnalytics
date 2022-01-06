@@ -54,14 +54,13 @@ jobs:
         # packages only needed for some examples (example boxes-with-pandoc-latex-environment-and-tcolorbox)
         tlmgr install tcolorbox pgf etoolbox environ trimspaces   
     - name: Build pdf files
-      run: cd examples && bash build-examples.sh && cd ..
+      run: cd src/Skript && bash build.sh && cd ..
     - name: Archive production artifacts
       uses: actions/upload-artifact@v2
       with:
         name: build-files
         path: |
-          examples/*/document.pdf
-          examples/*/preview.png
+          HealthCareDataAnalytics.pdf
     - name: Commit files
       run: |
         git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -69,7 +68,7 @@ jobs:
         git commit -m "Add changes" -a
     - name: Push changes
       uses: ad-m/github-push-action@master
-      if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         branch: ${{ github.ref }}
