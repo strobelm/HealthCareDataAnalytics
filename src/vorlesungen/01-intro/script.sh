@@ -6,6 +6,7 @@ do
     if [ $mdfile -nt $pdffile ]; then
       echo $mdfile
       pandoc -t beamer --include-in-header header.tex $mdfile -o $pdffile
+      echo "Done"
     fi
   done
   sleep 10

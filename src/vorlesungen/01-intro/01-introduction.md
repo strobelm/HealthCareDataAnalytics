@@ -22,22 +22,33 @@ Datum: N.N.
 
 Form: wenn möglich mündlich, sonst schriftlich 90 min
 
+## Kurzes Intro zu mir
+
+* Aktuell: Vice President Engineering bei der SmartReporting GmbH
+* Stationen davor:
+	*	Principal Software Engineer 
+	*	Freelance Consultant Computer Vision 
+	*	Doktor in Mathematik (Geometrie und Visualisierung) an der TU München
+	*	Lead Developer einer MINT Visualisierungssoftware: CindyJS
+* Geboren und aufgewachsen im Allgäu
+
 ## Inhalt des Vorlesung 
 
 ### Lernziele 
 * Methoden der Datenanalyse verstehen und anwenden können
 * Einsatzmöglichkeiten von Healthcare Data Analytics im klinischen Umfeld 
+* Generelle Vorgehensweisen bei Data Analytics und Machine Learning Projekten
 
-### Lerninhalte
+
+## Lerninhalte
+
 * Daten verstehen und in Datenstrukturen überführen 
 * Aufbau von Data Pipelines
 * Machine Learning verstehen und anwenden
 	* Visualisierung 
-	* Klassifikation
-	* Regressions
+	* Klassifikation / Regressions / Clustering
+	* Decision Trees / Neuronale Netze
 	* Training von Modellen
-	* Clustering
-	* Deep Neural Networks
 * Anwendungen aus der Praxis
 	* Datenstandards
 	* Computer Vision
@@ -249,6 +260,11 @@ Quellcode: https://github.com/strobelm/heart-failure-prediction
 
 <!-- ### Vielen Dank für die Aufmerksamkeit, gibt es Fragen? -->
 
+## Software Eco System
+
+![deeperanalytics.be](images/datasciencelogo.png "Data Science"){ width=300px  } 
+
+**Unser Fokus**: Python, TensorFlow, scikit-learn und pandas -> Übungen
 
 ## Quellen
 \footnotesize
