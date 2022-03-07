@@ -33,7 +33,7 @@ jobs:
         sudo apt-get update -qq && sudo apt-get install xzdec -y
         tlmgr init-usertree
     - name: Setup fonts and image convertion tool
-      run: sudo apt-get update -qq && sudo apt-get install fonts-noto-cjk poppler-utils -y
+      run: sudo apt-get update -qq && sudo apt-get install fonts-noto-cjk poppler-utils librsvg2-bin -y
     - name: Setup Python
       uses: actions/setup-python@v2
       with:
@@ -53,6 +53,8 @@ jobs:
         tlmgr install awesomebox fontawesome5
         # packages only needed for some examples (example boxes-with-pandoc-latex-environment-and-tcolorbox)
         tlmgr install tcolorbox pgf etoolbox environ trimspaces   
+        # vorlesungen
+        tlmgr install beamerthememetropolis
     - name: Build skript file
       run: cd src/skript && bash build.sh && cd ..
     - name: Build vorlesungs files
