@@ -54,7 +54,7 @@ jobs:
         # packages only needed for some examples (example boxes-with-pandoc-latex-environment-and-tcolorbox)
         tlmgr install tcolorbox pgf etoolbox environ trimspaces   
         # vorlesungen
-        tlmgr install beamerthememetropolis
+        tlmgr install beamertheme-metropolis
     - name: Build skript file
       run: cd src/skript && bash build.sh && cd ..
     - name: Build vorlesungs files
