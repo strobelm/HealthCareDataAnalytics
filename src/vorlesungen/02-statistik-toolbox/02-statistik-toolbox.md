@@ -61,11 +61,10 @@ $$\sigma = \sqrt{\operatorname{Var(X)}}$$
 
 ### Beispiel: Würfel
  Ein fairer Würfel kann als diskrete Zufallsvariable $X$ modelliert werden, mit den Ergebnissen 1 bis 6, jeweils mit der gleichen Wahrscheinlichkeit $\frac{1}{6}$.  Der Erwartungswert von ist, wie bereits berechnet, gegeben durch $E(X) = 3.5$.  Daher ist die Varianz von $X$: 
- $$
- \operatorname{Var}(X) = \sum_{i=1}^6 \frac{1}{6}\left(i - \frac{7}{2}\right)^2 
- = \frac{1}{6}\left((-5/2)^2 + (-3/2)^2 + (-1/2)^2 + (1/2)^2 + (3/2)^2 + (5/2)^2\right) \\[5pt]
- = \frac{35}{12} \approx 2.92.
- $$
+
+$$\operatorname{Var}(X) = \sum_{i=1}^6 \frac{1}{6}\left(i - \frac{7}{2}\right)^2 
+ = \frac{1}{6}\left((-5/2)^2 + (-3/2)^2 + (-1/2)^2 + (1/2)^2 + (3/2)^2 + (5/2)^2\right) 
+ = \frac{35}{12} \approx 2.92.$$
 
 
 ## Tschebyscheff-Ungleichung 
