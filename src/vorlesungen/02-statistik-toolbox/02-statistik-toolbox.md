@@ -134,6 +134,23 @@ $P(X = 1$ oder $X = 6) = P(|X-\operatorname{E(X)}| \ge 2.5) \le \frac{1}{2.5^2} 
 
 ## Boxplots 
 
-![RobSeb, CC BY-SA 3.0](img/1280px-Elements_of_a_boxplot.svg.png "Boxplot"){ width=500px  } 
+![RobSeb, CC BY-SA 3.0](img/1280px-Elements_of_a_boxplot.svg.png "Boxplot"){ width=300px  } 
+
+
+- Minimum ($Q_0$): der niedrigste Datenpunkt im Datensatz ohne Ausreißer
+- Maximum ($Q_4$): der höchste Datenpunkt des Datensatzes ohne Ausreißer
+- Median ($Q_2$ oder 50. Quantil): der mittlere Wert des Datensatzes
+- Erstes Quartil ($Q_1$): 25% der Werte sind kleiner-gleich als dieser Wert
+- Drittes Quartil ($Q_3$): 75% der Werte sind kleiner-gleich als dieser Wert
+
+## Boxplots, Whisker / Ausreißer:
+
+![RobSeb, CC BY-SA 3.0](img/1280px-Elements_of_a_boxplot.svg.png "Boxplot"){ width=300px  } 
+
+- Definition nicht einheitlich
+- interquantile range: $\operatorname{IQR} := Q_3 - Q_1$ 
+- Whisker: $1.5 \cdot \operatorname{IQR}$ (schwache Ausreißer), $3 \cdot \operatorname{IQR}$ (starke Ausreißer)
+
 
 ## Referenzen
+- Georgii, Hans-Otto. Stochastik. de Gruyter, 2015.
