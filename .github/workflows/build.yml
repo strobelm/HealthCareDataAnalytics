@@ -77,4 +77,5 @@ jobs:
       if: github.event_name == 'push' && github.ref == 'refs/heads/main'
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: ${{ github.ref }}
+        # branch: ${{ github.ref }}
+        branch: 'HealthCareDataAnalytics-deploy'
