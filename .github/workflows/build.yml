@@ -79,4 +79,4 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         branch: ${{ github.ref }}
         # branch: 'HealthCareDataAnalytics-deploy'
-        repository: 'HealthCareDataAnalytics-deploy'
+        repository: 'strobelm/HealthCareDataAnalytics-deploy'
