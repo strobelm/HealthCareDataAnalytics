@@ -1,4 +1,5 @@
 #!/bin/bash
+mkdir -p ../../build/
 for d in */ ; do
   echo "$d"
   cd $d
