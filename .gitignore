@@ -4,6 +4,7 @@ private/
 
 # build folder
 dist/
+build/
 
 # contains unit tests (incomplete at the moment, so don't include them)
 test/
