@@ -13,26 +13,43 @@ classoption:
 
 ## Organisatorisches 
 ### Zeit 
-#### Vorlesung: Montag, 10-12 Uhr
-#### Übung: Montag, 12-14
+#### Vorlesung: Montag, 10-12 Uhr, Übung: Montag, 12-14 Uhr
 #### Sprechzeiten: nach der Übung und nach Vereinbarung (m.strobel@posteo.de)
 
 ### Klausur
 Datum: N.N. 
-
 Form: wenn möglich mündlich, sonst schriftlich 90 min
+
+### Moodle etc.
+Einrichtung läuft noch -> temporär [https://strobelm.de/hda](https://strobelm.de/hda)
 
 ## Kurzes Intro zu mir
 
+![](images/sr-logo.svg.png "SR"){ width=150px  } 
+
+### Was macht eigentlich Ihr Dozent?
 * Aktuell: Vice President Engineering bei der SmartReporting GmbH
 * Stationen davor:
 	*	Principal Software Engineer 
 	*	Freelance Consultant Computer Vision 
 	*	Doktor in Mathematik (Geometrie und Visualisierung) an der TU München
 	*	Lead Developer einer MINT Visualisierungssoftware: CindyJS
-* Geboren und aufgewachsen im Allgäu
+<!-- * Geboren und aufgewachsen im Allgäu -->
+
+## Healthcare Data Analytics -- Übersicht
+
+![freshidea, stock.adobe.com](images/heart.jpg "Heart"){ width=350px  } 
 
 ## Inhalt des Vorlesung 
+
+### Informatik im Gesundheitswesen
+* Das Feld ist wirklich extrem groß und wir können nur einen kleinen Teil abdecken:
+	* Diagnose / Behandlungsvorschläge 
+	* Entdeckung von Medikamenten 
+	* Prävention
+	* Krankenhausorganisation 
+	* ...
+* Ziel ist es Ihnen einen guten Einblick zu geben welche Methoden in der Praxis verwendet werden 
 
 ### Lernziele 
 * Methoden der Datenanalyse verstehen und anwenden können
@@ -55,10 +72,8 @@ Form: wenn möglich mündlich, sonst schriftlich 90 min
 	* Differential Privacy
 	* Big Data Tools
 
+### Welches Feld interessiert Sie am meisten? 
 
-## Healthcare Data Analytics -- Übersicht
-
-![freshidea, stock.adobe.com](images/heart.jpg "Heart"){ width=300px  } 
 
 ## Datenanalyse und Machine learning in der Praxis
 * Erkennung von Mustern in Patientenkohorten
@@ -68,6 +83,9 @@ Form: wenn möglich mündlich, sonst schriftlich 90 min
 * Spracherkennung und Sprachsteuerung
 * Vorhersage von benötigten Behandungskapazitäten
 * ...
+	
+## Beispiel
+![Erkennung von Knochenentwicklung bei Kindern](images/boneage.jpg "boneage"){ width=200px  }
 
 ## Ablauf einen typischen Healthcare Data Analytics Projekts
 
@@ -82,6 +100,8 @@ Form: wenn möglich mündlich, sonst schriftlich 90 min
 8. Deployment, Monitoring und Wartung des Systems
 
 ## Beispiel: Erkennung von Herzkrankheiten
+
+![ Thinkstock by Getty-Images](images/heart-glow.jpg "heart"){ width=300px  }
 
 - Als einführendes Beispiel möchte ich mit Ihnen heute ein Machine Learning Projekt durchführen
 - Wir erkennen ob ein Patient$\cdot$in  an einer Herzkrankheit leidet oder nicht
@@ -123,6 +143,8 @@ Form: wenn möglich mündlich, sonst schriftlich 90 min
 ![Korrelation zwischen Herzkrankheit und einigen Features](images/bar_corr.png "sin"){ width=350px  }
 
 ## Analyse der Patientendaten und Feature Auswahl -- Data Pipelines
+
+![https://hazelcast.com/glossary/data-pipeline/](images/datapipe.jpg "pipe"){ width=400px  }
 
 Nach der Auswahl von relevanten Features können die **Datapipelines** gebaut werden.
 
@@ -266,6 +288,33 @@ Quellcode: https://github.com/strobelm/heart-failure-prediction
 
 **Unser Fokus**: Python, TensorFlow, scikit-learn und pandas -> Übungen
 
+## Literaturempfehlung 
+
+![](images/geron.jpg){ width=150px  } 
+
+Géron, A. (2019). Hands-on machine learning with Scikit-Learn, Keras, and TensorFlow: Concepts, tools, and techniques to build intelligent systems. O'Reilly Media.
+
+## Vorlesungsausrichtung
+
+### Umfrage zur Vorlesung
+
+* Ich werde Sie öfters im Feedback fragen und Ihre Vorschläge einarbeiten 
+* Welche Spezialthemen wünschen Sie sich?
+* Generelles Feedback: Geschwindigkeit und Inhalt
+
+Link für erste Vorlesung: [https://forms.gle/9XmCq4kibCr6XViAA](https://forms.gle/9XmCq4kibCr6XViAA)
+
+#### Fragen / Anmerkungen?
+
+## Übung
+
+![](images/jupyter.svg){ width=150px  } 
+
+- Wir benutzen Python ($>= 3.6$) und gängige Data Science Bibliotheken für die Übungen
+- Interaktive Eingabe und Exploration mit jupyter-notebooks
+- Online über den Webbrowser: [https://colab.research.google.com](https://colab.research.google.com)
+- Erstes Notebook finden Sie auf [https://strobelm/hda](https://strobelm/hda) -> 01-Intro (Python Crashkurs)
+
 ## Quellen
 \footnotesize
 - Kardash, M., Elamin, M. S., Mary, D. A. S. G., Whitaker, W., Smith, D. R., Boyle, R., ... & Linden, R. J. (1982). The slope of ST segment/heart rate relationship during exercise in the prediction of severity of coronary artery disease. European heart journal, 3(5), 449-458.
@@ -273,6 +322,7 @@ Quellcode: https://github.com/strobelm/heart-failure-prediction
 - Bishop, C. M. (2006). Pattern recognition. Machine learning.
 - fedesoriano. (September 2021). Heart Failure Prediction Dataset. https://www.kaggle.com/fedesoriano/heart-failure-prediction.
 \normalsize 
+
 
 
 <!-- ## Precision Recall --> 

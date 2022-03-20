@@ -1,4 +1,5 @@
 #!/bin/bash
+mkdir -p ../../build/
 while :
 do
   for d in */ ; do
