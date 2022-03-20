@@ -2,7 +2,7 @@
 title:
 - Healthcare Data Analytics
 author:
-- Dr. Michael Strobel, Smart Reporting GmbH
+- Dr. Michael Strobel
 subtitle:
 - Einführung
 date:
@@ -13,15 +13,24 @@ classoption:
 
 ## Organisatorisches 
 ### Zeit 
-#### Vorlesung: Montag, 10-12 Uhr, Übung: Montag, 12-14 Uhr
-#### Sprechzeiten: nach der Übung und nach Vereinbarung (m.strobel@posteo.de)
+- Vorlesung: Montag, 10-12 Uhr, Übung: Montag, 12-14 Uhr
+- Sprechzeiten: nach der Übung und nach Vereinbarung (m.strobel@posteo.de)
 
-### Klausur
-Datum: N.N. 
-Form: wenn möglich mündlich, sonst schriftlich 90 min
+#### Inhalt
+Breiter Überblick zur Datenanalyse / Machine Learning für Anwendung im Gesundheitswesen
 
 ### Moodle etc.
 Einrichtung läuft noch -> temporär [https://strobelm.de/hda](https://strobelm.de/hda)
+
+### Übung
+* Übungsblätter und Daten: vor der Übung online in Moodle
+* Präsenzübung: interaktiv und in Kleingruppen mit jupyter-notebooks
+* Hausaufgaben: vertiefende Inhalte basierend auf der Präsenzübung, individuell oder in Kleingruppen
+* Lösungen zu den Hausaufgaben: nach einer Woche online in Moodle 
+
+### Klausur
+Form: wenn möglich mündlich, sonst schriftlich (TBD)
+
 
 ## Kurzes Intro zu mir
 
@@ -149,9 +158,10 @@ Einrichtung läuft noch -> temporär [https://strobelm.de/hda](https://strobelm.
 Nach der Auswahl von relevanten Features können die **Datapipelines** gebaut werden.
 
 Eine **Datapipeline** ermöglicht es, den Prozess der Datengewinnung, -bereinigung und Transformation zu automatisieren.
-- Bereinigung der Daten
-- Umwandlung von Daten (z.B. von Kategorischen Daten in Numerische Daten)
-- Skalierung von Daten z.B. zwischen 0 und 1
+
+* Bereinigung der Daten
+* Umwandlung von Daten (z.B. von Kategorischen Daten in Numerische Daten)
+* Skalierung von Daten z.B. zwischen 0 und 1
 
 ## Auswahl des Modells
 Es gibt eine Vielzahl von Modellen: Decision Trees, Random Forests, Support Vector Machines, ...
