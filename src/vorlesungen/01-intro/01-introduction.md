@@ -49,16 +49,14 @@ Form: wenn möglich mündlich, sonst schriftlich (TBD)
 
 ![freshidea, stock.adobe.com](images/heart.jpg "Heart"){ width=350px  } 
 
-## Inhalt des Vorlesung 
-
-### Informatik im Gesundheitswesen
-* Das Feld ist wirklich extrem groß und wir können nur einen kleinen Teil abdecken:
-	* Diagnose / Behandlungsvorschläge 
-	* Entdeckung von Medikamenten 
-	* Prävention
-	* Krankenhausorganisation 
-	* ...
-* Ziel ist es Ihnen einen guten Einblick zu geben welche Methoden in der Praxis verwendet werden 
+## Datenanalyse und Machine learning in der Praxis
+* Erkennung von Mustern in Patientenkohorten
+* Interaktive Dashboards zur Informationsgewinnung
+* Automatische Diagnose: Erkennung von Tumoren in CT-Scans
+* Vorschläge für Therapiemaßnahmen
+* Spracherkennung und Sprachsteuerung
+* Vorhersage von benötigten Behandungskapazitäten
+* ...
 
 ### Lernziele 
 * Methoden der Datenanalyse verstehen und anwenden können
@@ -66,7 +64,7 @@ Form: wenn möglich mündlich, sonst schriftlich (TBD)
 * Generelle Vorgehensweisen bei Data Analytics und Machine Learning Projekten
 
 
-## Lerninhalte
+## Lerninhalte der Vorlesung
 
 * Daten verstehen und in Datenstrukturen überführen 
 * Aufbau von Data Pipelines
@@ -83,15 +81,6 @@ Form: wenn möglich mündlich, sonst schriftlich (TBD)
 
 ### Welches Feld interessiert Sie am meisten? 
 
-
-## Datenanalyse und Machine learning in der Praxis
-* Erkennung von Mustern in Patientenkohorten
-* Interaktive Dashboards zur Informationsgewinnung
-* Automatische Diagnose: Erkennung von Tumoren in CT-Scans
-* Vorschläge für Therapiemaßnahmen
-* Spracherkennung und Sprachsteuerung
-* Vorhersage von benötigten Behandungskapazitäten
-* ...
 	
 ## Beispiel
 ![Erkennung von Knochenentwicklung bei Kindern](images/boneage.jpg "boneage"){ width=200px  }
