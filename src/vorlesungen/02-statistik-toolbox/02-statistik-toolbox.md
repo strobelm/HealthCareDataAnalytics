@@ -2,9 +2,9 @@
 title:
 - Healthcare Data Analytics
 author:
-- Dr. Michael Strobel, Smart Reporting GmbH
+- Dr. Michael Strobel
 subtitle:
-- Statistik Toolbox 
+- Statistik Toolbox und Daten Encoding
 date:
 - 28.03.2022
 classoption:
@@ -132,6 +132,23 @@ $P(X = 1$ oder $X = 6) = P(|X-\operatorname{E(X)}| \ge 2.5) \le \frac{1}{2.5^2} 
 
 ![Poissonverteilung](img/poisson.png){ width=350px}
 
+## Normalisierung / Standardisierung
+
+### Normalisierung
+Sei $M\subset \mathbb R$ eine Menge von reelen Zahlen, definiere
+$M' = \frac{M - \text{min}(M)}{\text{max}(M)-\text{min}(M)}$
+
+Dann gilt: $M\subset [0,1]$.
+
+### Standardisierung
+Sei $X$ eine Zufallsvariable mit Erwartungswert $\operatorname{E(X)}= \mu$ und endlicher Varianz $\sigma^2 = \operatorname{Var}(X)> 0$.
+
+Definiere $Z:= \left(\frac{X-\mu}{\sigma}\right)$
+Dann gilt: $\operatorname{E(Z)}=0$ und $\operatorname{Var}(Z) = 1$.
+
+#### Normalisierung und Standardisierung werden oft zum Preprocessing von Daten verwendet.
+
+
 ## Boxplots 
 
 ![RobSeb, CC BY-SA 3.0](img/1280px-Elements_of_a_boxplot.svg.png "Boxplot"){ width=300px  } 
@@ -151,6 +168,42 @@ $P(X = 1$ oder $X = 6) = P(|X-\operatorname{E(X)}| \ge 2.5) \le \frac{1}{2.5^2} 
 - interquantile range: $\operatorname{IQR} := Q_3 - Q_1$ 
 - Whisker: $1.5 \cdot \operatorname{IQR}$ (schwache Ausreißer), $3 \cdot \operatorname{IQR}$ (starke Ausreißer)
 
+## Outlier Detection mit dem IQR
+
+- Wir können mithilfe des IQR Extremwerte bestimmen 
+- Ob dies gut funktioniert liegt sehr stark an der Verteilung der Daten
+- Überlegen Sie sich daher welche Distribution der Daten vorliegt
+
+![IQR und Normalverteilung, Quelle: JhGuch, CC BY-SA 2.5](images/Boxplot_vs_PDF.svg "Boxplot"){ height=400px  } 
+
+# Daten Encoding 
+
+## Behandlung von kategorischen Daten
+Es gibt zwei Arten von kategorischen Daten
+
+* **Nominal**. Eine Variable kann als nominal behandelt werden, wenn ihre Werte Kategorien darstellen, die sich nicht in eine natürliche Reihenfolge bringen lassen, z. B. die Firmenabteilung, in der eine Person arbeitet. Beispiele für nominale Variablen sind Region, Postleitzahl oder Religionszugehörigkeit.
+* **Ordinal**. Eine Variable kann als ordinal behandelt werden, wenn ihre Werte für Kategorien stehen, die eine natürliche Reihenfolge aufweisen (z. B. Grad der Zufriedenheit mit Kategorien von sehr unzufrieden bis sehr zufrieden). Ordinale Variablen treten beispielsweise bei Einstellungsmessungen (Zufriedenheit oder Vertrauen) und bei Präferenzbeurteilungen auf.
+
+
+## Label Encoding
+Sei $M$ eine diskrete Menge von kategorischen Labeln, dann ist das **Label Encoding** eine injektive Funktion $f: M \rightarrow \mathbb N$
+
+### Beispiel: M = {Apfel, Birne, Zitrone}
+|Label   |   Label Encoding | 
+|:-:|:-:|
+| Apfel  | 1  | 
+| Birne   | 2  | 
+| Zitrone  | 3  | 
+
+## One-Hot-Encoding
+Sei $M$ eine diskrete Menge mit $n$ kategorischen Labeln, dann ist das **One-Hot Encoding** injektive Funktion $f: M \rightarrow \{0,1\}^n$
+
+### Beispiel: M = {Apfel, Birne, Zitrone}
+| Apfel  | Birne  | Zitrone  |
+|:-:|:-:|:-:|
+| 1  | 0 | 0 |
+| 0  | 1 | 0 |
+| 0  | 0 | 1 |
 
 ## Referenzen
 - Georgii, Hans-Otto. Stochastik. de Gruyter, 2015.
