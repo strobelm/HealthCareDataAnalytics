@@ -24,16 +24,16 @@ classoption:
 - Stochastik Tools (Wiederholung)
 - Plotting 
 - Data Processing / Encoding 
-- Übung: pandas, scikit-learn, numpy 
+- Übung: pandas, numpy, matplotlib
 
 
-# Stochastik Toolbox
+<!-- # Stochastik Toolbox -->
 
-## Disclaimer 
+<!-- ## Disclaimer --> 
 
-- Dies ist keine Stochastik Vorlesung, ich muss darauf vertrauen, dass sie eine grundlegende Vorstellung von Stochastischen Prozessen haben. 
-- Viele der Konzepte aus der Stochastik, also der Wahrscheinlichkeitstheorie und Statistik, sind wichtig für Machine Learning Prozesse.
-- Wir machen eine kleine Wiederholung, welche aber natürlich nicht vollständig sein kann.
+<!-- - Dies ist keine Stochastik Vorlesung, ich muss darauf vertrauen, dass sie eine grundlegende Vorstellung von Stochastischen Prozessen haben. --> 
+<!-- - Viele der Konzepte aus der Stochastik, also der Wahrscheinlichkeitstheorie und Statistik, sind wichtig für Machine Learning Prozesse. -->
+<!-- - Wir machen eine kleine Wiederholung, welche aber natürlich nicht vollständig sein kann. -->
 
 ## Erwartungswert
 
@@ -44,7 +44,7 @@ Bei Zufalls Experimenten stellt sich oft eine Regelmäßigkeit bezüglich des la
 ## Erwartungswert, Definition 
 
 ### Formale Definition
-Sei $X$ eine reele diskrete Zufallsvariable, die die Werte $x_i$ mit Wahrscheinlichkeit $p_i (i \in \mathbb{I} \subset \mathbb{N})$ annimmt. So definieren wir den Erwartungswert $E(X)$
+Sei $X$ eine reelle diskrete Zufallsvariable, die die Werte $x_i$ mit Wahrscheinlichkeit $p_i (i \in \mathbb{I} \subset \mathbb{N})$ annimmt. So definieren wir den Erwartungswert $E(X)$
 
 $$E(X) = \sum_{i \in \mathbb{I}} x_i \cdot p_i = \sum_{i \in \mathbb{I}} x_i \cdot P(X = x_i)$$
 
@@ -121,12 +121,11 @@ Wir kennen die Antwort, sie ist $1/3$.
 
 ## Einige Verteilungen
 
+#### Es ist wichtig einige gängige Verteilungen zu kennen und sie zu *erkennen*.
 - In der Praxis spielen oft Wahrscheinlichkeitsverteilungen eine wichtige Rolle
 - Sie werden verwendet um Zufallsprozesse zu modellieren
 - Es gibt einen ganzen Zoo von Wahrscheinlichkeitsverteilungen die unterschiedliche Anwendungen haben
 - **Wichtig**: oft wir fälschlicherweise angenommen, dass Daten *normal-* oder *gleich-* verteilt sind.
-
-Es ist wichtig einige gängige Verteilungen zu kennen und sie zu *erkennen*.
 
 ## Normalverteilung
 
@@ -170,10 +169,12 @@ Es ist wichtig einige gängige Verteilungen zu kennen und sie zu *erkennen*.
 - Daher werden Normalisierung und Standardisierung werden oft zum Preprocessing von Daten verwendet
 
 ## Normalisierung
-Sei $M\subset \mathbb R$ eine Menge von reelen Zahlen, definiere
+### Normalisierung von Mengen 
+
+Sei $M\subset \mathbb R$ eine Menge von reellen Zahlen, definiere
 $M' = \frac{M - \text{min}(M)}{\text{max}(M)-\text{min}(M)}$
 
-Dann gilt: $M\subset [0,1]$.
+Dann gilt: $M' \subset [0,1]$.
 
 
 ### Beispiel
@@ -186,10 +187,11 @@ Beispiel zum selber rechnen: $[1, 10, 10^{100}]$
 
 
 ## Standardisierung
-Alternativ kann man die Daten mit Erwartungswert und Varianz normalisieren. Dies ist etwas robuster gegenüber Ausreißern.
+Alternativ kann man die Daten mit Erwartungswert und Varianz "standardisieren". Dies ist etwas robuster gegenüber Ausreißern.
 
 ### Definition
 Sei $X$ eine Zufallsvariable mit Erwartungswert $\operatorname{E(X)}= \mu$ und endlicher Varianz $\sigma^2 = \operatorname{Var}(X)> 0$.
+
 Dann definieren wir die normalisierte Zufallsvariable $Z$ als
 
 $$Z:= \left(\frac{X-\mu}{\sigma}\right)$$
