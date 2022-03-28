@@ -146,17 +146,24 @@ Wir kennen die Antwort, sie ist $1/3$.
 ![Normalverteilung](img/gauss.png){ width=350px}
 
 ## Exponentialverteilung
-#### Modellierung von Wartezeiten
+#### Modellierung von Zeitintervallen
+- Lebensdauer von Bauteilen, Geräten etc.
+- Kasko in der Versicherung
+- Länge von Telefongesprächen 
 
 ![Exponentialverteilung](img/expon.png){ width=350px}
 
 ## Gammaverteilung
-#### Auch Modellierung Wartezeiten 
+#### Warteschlangentheorie 
+- Wartezeit bei Autoreparatur 
+- Schadensmodell in der Versicherung
 
 ![Gammaverteilung](img/gamma.png){ width=350px}
 
 ## Poissonverteilung 
 #### Anzahl von Ereignissen die in einem festen Zeitintervall oder räumlichen Gebiet eintreten
+- Wie viele Gäste sind zwischen 18 und 20 Uhr in einer Pizzeria 
+- Wie viele Signal/WhatsApp Nachrichten werden pro Tag versendet 
 
 ![Poissonverteilung](img/poisson.png){ width=350px}
 
