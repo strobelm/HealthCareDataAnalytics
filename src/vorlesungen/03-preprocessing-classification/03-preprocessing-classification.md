@@ -81,6 +81,48 @@ Es gibt zahlreiche Möglichkeit fehlende Daten zu ersetzen, die einzige formale 
 
 # Data Pipelines
 
+## Basic Data Pipeline
+
+### Intro
+![Bildquelle: https://hazelcast.com/glossary/data-pipeline/](images/data_pipeline.png){ width=300px  } 
+
+### Daten Pipeline 
+Eine *Datenpipeline* ist eine Reihe von Datenverarbeitungsschritten, die in Reihe geschaltet sind, wobei der Output eines Schrittes der Input des nächsten Elements ist.
+
+Formal: seien $X_1,..., X_n$ beliebige nicht leere Mengen. Seien $f_1, ..., f_n$ Funktionen mit $f_1: X_1 \rightarrow X_2, f_2: X_2 \rightarrow X_3, ..., f_n: X_{n-1} \rightarrow X_n$. 
+
+Wir definieren dann die Datenpipline als $p: X_1 \rightarrow X_n$ mit $p(d):= f_n(f_{n-1}(...(f_1(d))))$
+
+## Aufbau von Data Pipelines 
+- Typischerweise werden die Daten mindest über mindestens zwei separate Pipelines aufgeteilt
+    - numerische Features 
+    - kategorische Features
+- Diese werden am Ende wieder zusammengeführt zu einer großen Pipeline für die Input Daten 
+- Desweiteren wird gibt es auch oft eine Pipeline für die das prediction Target 
+
+![](images/pipe_vis.png){ width=300px  } 
+
+
+## Machine Learning in der Praxis
+In der Praxis kommen mindestens folgende Schritte in der Pipeline vor:
+
+### Numerische Data Pipelines
+1. Behandlung / Ersatz von Fehlenden Daten 
+2. Normalisierung / Standardisierung
+
+### Kategorische Data Pipelines
+1. Behandlung / Ersatz von Fehlenden Daten 
+2. OneHot oder Label Encoding
+
+Darüber hinaus kann es sehr viel weitere Schritte in den jeweiligen Pipeline geben
+- Hinzufügen von kombinierten Features, d.h. ein Feature wird aus anderen Features generiert
+- Diskretisierung von kontinuierlichen Variablen (z.B. Haus steht nah an einem See: ja oder nein (statt Kilometerangabe))
+- Komplexe nichtlineare Funktionen (Details nicht in der Vorlesung)
+- ...
+
+
+(Standardisierung, Ersatz von fehlenden Daten, Umwandlung von kategorischen Daten in numerische Daten)
+
 ## Referenzen
 - Fischer, Gerd, Matthias Lehner, and Angela Puchert. Einführung in die Stochastik. Springer, 2015.
 - Géron, Aurélien: Praxiseinstieg Machine Learning mit Scikit-Learn, Keras und TensorFlow : Konzepte, Tools und Techniken für intelligente Systeme. Aktuell zu TensorFlow 2. Sebastopol: O'Reilly, 2020.
