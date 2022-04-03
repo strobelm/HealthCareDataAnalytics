@@ -98,6 +98,7 @@ Wir definieren dann die Datenpipline als $p: X_1 \rightarrow X_n$ mit $p(d):= f_
 Konkret heißt das: $X_1$ ist die Menge der Input Daten und $X_n$ ist die Menge die dann von einem Machine Learning Algorithmus verarbeitet werden kann.
 
 ## Aufbau von Data Pipelines 
+- Selektion relevanter Features
 - Typischerweise werden die Daten mindest über mindestens zwei separate Pipelines aufgeteilt
     - numerische Features 
     - kategorische Features
@@ -112,19 +113,21 @@ Konkret heißt das: $X_1$ ist die Menge der Input Daten und $X_n$ ist die Menge 
 In der Praxis kommen mindestens folgende Schritte in der Pipeline vor:
 
 ### Numerische Data Pipelines
-1. Behandlung / Ersatz von Fehlenden Daten 
-2. Normalisierung / Standardisierung
+1. Selektion relevanter Features
+2. Behandlung / Ersatz von Fehlenden Daten 
+3. Normalisierung / Standardisierung
 
 ### Kategorische Data Pipelines
-1. Behandlung / Ersatz von Fehlenden Daten 
-2. OneHot- oder Label Encoding
+1. Selektion relevanter Features
+2. Behandlung / Ersatz von Fehlenden Daten 
+3. OneHot- oder Label Encoding
 
 ## Data Pipelines in der Praxis, cont'd
 Darüber hinaus kann es sehr viel weitere Schritte in den jeweiligen Pipeline geben
 
 - Hinzufügen von kombinierten Features, d.h. ein Feature wird aus anderen Features generiert
 - Diskretisierung von kontinuierlichen Variablen (z.B. Haus steht nah an einem See: ja oder nein (statt Kilometerangabe))
-- Komplexe nichtlineare Funktionen (Details nicht in der Vorlesung)
+- Nichtlineare Funktionen, z.B. $\log(x), \sqrt(X), X^2, X^3, ...$
 - ...
 
 # Supervised Learning
