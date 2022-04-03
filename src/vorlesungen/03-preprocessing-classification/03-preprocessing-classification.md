@@ -195,6 +195,9 @@ $$\text{Precision := }\frac{TP}{TP+FP}$$
 #### Recall: Wie viele der relevanten Objekte wurden erkannt?
 $$\text{Recall := }\frac{TP}{TP+FN}$$ 
 
+#### $F_1$ Score: Harmonisches Mittel zwischen Precision und Recall
+$$F_1\text{ score := } 2 \cdot \frac{\mathrm{Precision} \cdot \mathrm{Recall}}{\mathrm{Precision} + \mathrm{Recall}}$$
+
 ## Precision Recall, Visualisierung
 ![Precision und Recall, Walber CC BY-SA 4.0](images/Precisionrecall.svg "bar"){ width=350px  }
 
