@@ -127,7 +127,7 @@ Darüber hinaus kann es sehr viel weitere Schritte in den jeweiligen Pipeline ge
 
 - Hinzufügen von kombinierten Features, d.h. ein Feature wird aus anderen Features generiert
 - Diskretisierung von kontinuierlichen Variablen (z.B. Haus steht nah an einem See: ja oder nein (statt Kilometerangabe))
-- Nichtlineare Funktionen, z.B. $\log(x), \sqrt(X), X^2, X^3, ...$
+- Nichtlineare Funktionen, z.B. $\log(x), \sqrt X, X^2, X^3, ...$
 - ...
 
 # Supervised Learning
