@@ -1,6 +1,8 @@
 #!/bin/bash
-mkdir -p ../../build/
-for d in */ ; do
+mkdir -p ./build/
+while :
+do
+for d in ./src/vorlesungen/*/; do
   echo "$d"
   cd $d
   for mdfile in *.md; do
@@ -12,5 +14,7 @@ for d in */ ; do
       echo "Done"
     fi
   done
-  cd ..
+  cd ../../../
+  done
+  sleep 10
 done
