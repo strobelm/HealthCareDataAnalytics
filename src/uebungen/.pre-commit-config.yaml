@@ -5,3 +5,6 @@ repos:
     - id: nbqa-black
     - id: nbqa-pyupgrade
       args: [--py38-plus]
+    - id: nbqa-isort
+      args: ["--profile", "black"]
+    - id: nbqa-autopep8
