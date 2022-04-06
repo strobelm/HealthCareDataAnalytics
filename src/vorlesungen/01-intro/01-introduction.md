@@ -1,15 +1,15 @@
 ---
 title:
-- Healthcare Data Analytics
+  - Healthcare Data Analytics
 author:
-- Dr. Michael Strobel
+  - Dr. Michael Strobel
 subtitle:
-- Einführung
+  - Einführung
 date:
-- 21.03.2022
+  - 21.03.2022
 classoption:
-- aspectratio=1610,9pt
---- 
+  - aspectratio=1610,9pt
+---
 
 ## Organisatorisches
 
@@ -39,7 +39,7 @@ Form: wenn möglich mündlich, sonst schriftlich (TBD)
 
 ## Kurzes Intro zu mir
 
-![](images/sr-logo.svg.png "SR"){ width=150px  }
+![](images/sr-logo.svg.png "SR"){ width=150px }
 
 ### Was macht eigentlich Ihr Dozent?
 
@@ -49,11 +49,11 @@ Form: wenn möglich mündlich, sonst schriftlich (TBD)
   - Freelance Consultant Computer Vision
   - Doktor in Mathematik (Geometrie und Visualisierung) an der TU München
   - Lead Developer einer MINT Visualisierungssoftware: CindyJS
-<!-- * Geboren und aufgewachsen im Allgäu -->
+  <!-- * Geboren und aufgewachsen im Allgäu -->
 
 ## Healthcare Data Analytics -- Übersicht
 
-![freshidea, stock.adobe.com](images/heart.jpg "Heart"){ width=350px  }
+![freshidea, stock.adobe.com](images/heart.jpg "Heart"){ width=350px }
 
 ## Datenanalyse und Machine learning in der Praxis
 
@@ -90,7 +90,7 @@ Form: wenn möglich mündlich, sonst schriftlich (TBD)
 
 ## Beispiel
 
-![Erkennung von Knochenentwicklung bei Kindern](images/boneage.jpg "boneage"){ width=200px  }
+![Erkennung von Knochenentwicklung bei Kindern](images/boneage.jpg "boneage"){ width=200px }
 
 ## Ablauf einen typischen Healthcare Data Analytics Projekts
 
@@ -107,31 +107,31 @@ Form: wenn möglich mündlich, sonst schriftlich (TBD)
 
 ## Beispiel: Erkennung von Herzkrankheiten
 
-![ Thinkstock by Getty-Images](images/heart-glow.jpg "heart"){ width=300px  }
+![ Thinkstock by Getty-Images](images/heart-glow.jpg "heart"){ width=300px }
 
 - Als einführendes Beispiel möchte ich mit Ihnen heute ein Machine Learning Projekt durchführen
-- Wir erkennen ob ein Patient$\cdot$in  an einer Herzkrankheit leidet oder nicht
+- Wir erkennen ob ein Patient$\cdot$in an einer Herzkrankheit leidet oder nicht
 - Vorgehen richtet sich nach dem beschriebenen Muster eines HDA Projekts
 
 ## Analyse der Patientendaten und Feature Auswahl -- Feature Übersicht
 
 ### Übersicht verschaffen: ca. 900 Datensätze
 
-![](images/data_sample.png "data sample"){ width=550px  }
+![](images/data_sample.png "data sample"){ width=550px }
 
 ### Einige (nicht offensichtliche) Charakteristiken unseres Datensatzes
 
 \small
 
-| Feature | Beschreibung | Einheit / Wertebereich |
-|---|---|---|
-| ChestPainType | Art der Brustschmerzen  | {TA, ATA, NAP, ASY} |
-| RestingBP | Ruheblutdruck | [mm Hg] |
-| RestingECG | Ruhe-EKG | {Normal, ST, LVH} |
-| ExerciseAngina | Angina bei Belastung | {Y, N} |
-| ST_Slope | Steigung im ST Wert | {Up, Flat, Down} |
-| OldPeak | Abweichung im ST Wert | [-10, 10] |
-| HeartDisease | Output | {1, 0} |
+| Feature        | Beschreibung           | Einheit / Wertebereich |
+| -------------- | ---------------------- | ---------------------- |
+| ChestPainType  | Art der Brustschmerzen | {TA, ATA, NAP, ASY}    |
+| RestingBP      | Ruheblutdruck          | [mm Hg]                |
+| RestingECG     | Ruhe-EKG               | {Normal, ST, LVH}      |
+| ExerciseAngina | Angina bei Belastung   | {Y, N}                 |
+| ST_Slope       | Steigung im ST Wert    | {Up, Flat, Down}       |
+| OldPeak        | Abweichung im ST Wert  | [-10, 10]              |
+| HeartDisease   | Output                 | {1, 0}                 |
 
 \normalsize
 
@@ -141,19 +141,19 @@ Form: wenn möglich mündlich, sonst schriftlich (TBD)
 
 ## Daten statistisch auswerten und visualisieren
 
-![](images/bar_cat.png "bar"){ width=400px  }
+![](images/bar_cat.png "bar"){ width=400px }
 
 ## Daten statistisch auswerten und visualisieren
 
-![](images/bar_num.png "num"){ width=400px  }
+![](images/bar_num.png "num"){ width=400px }
 
 ## Analyse der Patientendaten und Feature Auswahl -- Korrelation Herzkrankheit
 
-![Korrelation zwischen Herzkrankheit und einigen Features](images/bar_corr.png "sin"){ width=350px  }
+![Korrelation zwischen Herzkrankheit und einigen Features](images/bar_corr.png "sin"){ width=350px }
 
 ## Analyse der Patientendaten und Feature Auswahl -- Data Pipelines
 
-![https://hazelcast.com/glossary/data-pipeline/](images/datapipe.jpg "pipe"){ width=400px  }
+![https://hazelcast.com/glossary/data-pipeline/](images/datapipe.jpg "pipe"){ width=400px }
 
 Nach der Auswahl von relevanten Features können die **Datapipelines** gebaut werden.
 
@@ -167,20 +167,20 @@ Eine **Datapipeline** ermöglicht es, den Prozess der Datengewinnung, -bereinigu
 
 Es gibt eine Vielzahl von Modellen: Decision Trees, Random Forests, Support Vector Machines, ...
 
-![Klassifikatoren visualisiert](images/all_classifiers.png "bar"){ width=500px  }
+![Klassifikatoren visualisiert](images/all_classifiers.png "bar"){ width=500px }
 
 - Eine Auswahl auf einem kleinen repräsentativen Datensatz stattfinden.
 - Wir schauen uns heute die Ergebnisse eines **künstlichen neuronalen Netzes** an.
 
 ## Künstliches Neuronales Netz
 
-![Künstliches Neuronales Netz](images/NN.drawio.svg.png "bar"){ width=250px  }
+![Künstliches Neuronales Netz](images/NN.drawio.svg.png "bar"){ width=250px }
 
 - **Trainingsschritt** mit Hilfe von Trainingsdaten und einem **Optimierungsalgorithmus** wird Vorhersageleistung des Netzes verbessert.
 - Netzwerkgestaltung und Optimierungsalgorithmen sind aktuelle Forschungsthemen.
-<!-- ### Kategorische Features -->
-<!-- - Data cleansing und hinzufügen fehlender Werte z.B. durch Einfügen des häufigsten Wertes -->
-<!-- - Umwandlung von kategorischen in numerische Features, z.B. One Hot Encoding -->
+  <!-- ### Kategorische Features -->
+  <!-- - Data cleansing und hinzufügen fehlender Werte z.B. durch Einfügen des häufigsten Wertes -->
+  <!-- - Umwandlung von kategorischen in numerische Features, z.B. One Hot Encoding -->
 
 <!-- ### Numerische Features -->
 <!-- - Data cleansing und hinzufügen fehlender Werte z.B. durch Einfügen des Medians -->
@@ -291,13 +291,13 @@ Quellcode: <https://github.com/strobelm/heart-failure-prediction>
 
 ## Software Eco System
 
-![deeperanalytics.be](images/datasciencelogo.png "Data Science"){ width=300px  }
+![deeperanalytics.be](images/datasciencelogo.png "Data Science"){ width=300px }
 
 **Unser Fokus**: Python, TensorFlow, scikit-learn und pandas -> Übungen
 
 ## Literaturempfehlung
 
-![](images/geron.jpg){ width=150px  }
+![](images/geron.jpg){ width=150px }
 
 Géron, A. (2019). Hands-on machine learning with Scikit-Learn, Keras, and TensorFlow: Concepts, tools, and techniques to build intelligent systems. O'Reilly Media.
 
@@ -315,7 +315,7 @@ Link für erste Vorlesung: [https://forms.gle/9XmCq4kibCr6XViAA](https://forms.g
 
 ## Übung
 
-![](images/jupyter.svg){ width=150px  }
+![](images/jupyter.svg){ width=150px }
 
 - Wir benutzen Python ($>= 3.6$) und gängige Data Science Bibliotheken für die Übungen
 - Interaktive Eingabe und Exploration mit jupyter-notebooks
@@ -330,7 +330,7 @@ Link für erste Vorlesung: [https://forms.gle/9XmCq4kibCr6XViAA](https://forms.g
 - Géron, A. (2019). Hands-on machine learning with Scikit-Learn, Keras, and TensorFlow: Concepts, tools, and techniques to build intelligent systems. O'Reilly Media.
 - Bishop, C. M. (2006). Pattern recognition. Machine learning.
 - fedesoriano. (September 2021). Heart Failure Prediction Dataset. <https://www.kaggle.com/fedesoriano/heart-failure-prediction>.
-\normalsize
+  \normalsize
 
 <!-- ## Precision Recall -->
 <!-- ![Precision und Recall, Walber CC BY-SA 4.0](images/Precisionrecall.svg "bar"){ width=350px  } -->

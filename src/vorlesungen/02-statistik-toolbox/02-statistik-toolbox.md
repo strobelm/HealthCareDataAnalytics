@@ -1,16 +1,15 @@
 ---
 title:
-- Healthcare Data Analytics
+  - Healthcare Data Analytics
 author:
-- Dr. Michael Strobel
+  - Dr. Michael Strobel
 subtitle:
-- Stochastik Toolbox und Daten Processing
+  - Stochastik Toolbox und Daten Processing
 date:
-- 28.03.2022
+  - 28.03.2022
 classoption:
-- aspectratio=1610,9pt
---- 
-
+  - aspectratio=1610,9pt
+---
 
 ## Inhalt
 
@@ -52,9 +51,11 @@ $$E(X) = \sum_{i \in \mathbb{I}} x_i \cdot p_i = \sum_{i \in \mathbb{I}} x_i \cd
 
 ### Beispiel: Würfeln
 
-$$\begin{array}{lcl}\operatorname{E}(X) & = & 1\cdot P(X=1)+2\cdot P(X=2)+3\cdot P(X=3)+4\cdot P(X=4)+5\cdot P(X=5)+6\cdot P(X=6)\\
+$$
+\begin{array}{lcl}\operatorname{E}(X) & = & 1\cdot P(X=1)+2\cdot P(X=2)+3\cdot P(X=3)+4\cdot P(X=4)+5\cdot P(X=5)+6\cdot P(X=6)\\
                                                                     & = & (1 + 2 + 3 + 4 + 5 + 6)\cdot \tfrac16 = 3{,}5.
-\end{array}$$
+\end{array}
+$$
 
 ## Mittlere Quadratische Abweichung
 
@@ -88,7 +89,7 @@ Ein MSE von 0 ist hier oft nicht erwünscht, weil dies ein Indikator ist, dass d
 
 Die Varianz ist ein Maß wie groß die Streuung einer Zufallsvariable um den Schwerpunkt herum ist.
 
-![Standardabweichung](img/std.png){ width=300px  }
+![Standardabweichung](img/std.png){ width=300px }
 
 ## Varianz / Standardabweichung, Formale Definition
 
@@ -101,11 +102,13 @@ $$\sigma = \sqrt{\operatorname{Var(X)}}$$
 
 ## Varianz, Beispiel: Würfel
 
-Ein fairer Würfel kann als diskrete Zufallsvariable $X$ modelliert werden, mit den Ergebnissen 1 bis 6, jeweils mit der gleichen Wahrscheinlichkeit $\frac{1}{6}$.  Der Erwartungswert von ist, wie bereits berechnet, gegeben durch $E(X) = 3.5$.  Daher ist die Varianz von $X$:
+Ein fairer Würfel kann als diskrete Zufallsvariable $X$ modelliert werden, mit den Ergebnissen 1 bis 6, jeweils mit der gleichen Wahrscheinlichkeit $\frac{1}{6}$. Der Erwartungswert von ist, wie bereits berechnet, gegeben durch $E(X) = 3.5$. Daher ist die Varianz von $X$:
 
-$$\operatorname{Var}(X) = \sum_{i=1}^6 \frac{1}{6}\left(i - \frac{7}{2}\right)^2
+$$
+\operatorname{Var}(X) = \sum_{i=1}^6 \frac{1}{6}\left(i - \frac{7}{2}\right)^2
  = \frac{1}{6}\left((-5/2)^2 + (-3/2)^2 + (-1/2)^2 + (1/2)^2 + (3/2)^2 + (5/2)^2\right)
- = \frac{35}{12} \approx 2.92.$$
+ = \frac{35}{12} \approx 2.92.
+$$
 
 ## Tschebyscheff-Ungleichung
 
@@ -133,12 +136,12 @@ Wir kennen die Antwort, sie ist $1/3$.
 
 ## Einige Verteilungen
 
-#### Es ist wichtig einige gängige Verteilungen zu kennen und sie zu *erkennen*
+#### Es ist wichtig einige gängige Verteilungen zu kennen und sie zu _erkennen_
 
 - In der Praxis spielen oft Wahrscheinlichkeitsverteilungen eine wichtige Rolle
 - Sie werden verwendet um Zufallsprozesse zu modellieren
 - Es gibt einen ganzen Zoo von Wahrscheinlichkeitsverteilungen die unterschiedliche Anwendungen haben
-- **Wichtig**: oft wir fälschlicherweise angenommen, dass Daten *normal-* oder *gleich-* verteilt sind.
+- **Wichtig**: oft wir fälschlicherweise angenommen, dass Daten _normal-_ oder _gleich-_ verteilt sind.
 
 ## Normalverteilung
 
@@ -229,13 +232,13 @@ $$Z:= \left(\frac{X-\mu}{\sigma}\right)$$
 
 ### Korollar
 
-Für eine normalisierte Zufallsvariable Z gilt:  $\operatorname{E(Z)}=0$ und $\operatorname{Var}(Z) = 1$.
+Für eine normalisierte Zufallsvariable Z gilt: $\operatorname{E(Z)}=0$ und $\operatorname{Var}(Z) = 1$.
 
 # Ausreißer und Plotting
 
 ## Boxplots
 
-![RobSeb, CC BY-SA 3.0](img/1280px-Elements_of_a_boxplot.svg.png "Boxplot"){ width=300px  }
+![RobSeb, CC BY-SA 3.0](img/1280px-Elements_of_a_boxplot.svg.png "Boxplot"){ width=300px }
 
 - Minimum ($Q_0$): der niedrigste Datenpunkt im Datensatz ohne Ausreißer
 - Maximum ($Q_4$): der höchste Datenpunkt des Datensatzes ohne Ausreißer
@@ -245,7 +248,7 @@ Für eine normalisierte Zufallsvariable Z gilt:  $\operatorname{E(Z)}=0$ und $\o
 
 ## Boxplots, Whisker / Ausreißer
 
-![RobSeb, CC BY-SA 3.0](img/1280px-Elements_of_a_boxplot.svg.png "Boxplot"){ width=300px  }
+![RobSeb, CC BY-SA 3.0](img/1280px-Elements_of_a_boxplot.svg.png "Boxplot"){ width=300px }
 
 - Definition nicht einheitlich
 - interquantile range: $\operatorname{IQR} := Q_3 - Q_1$
@@ -257,21 +260,21 @@ Für eine normalisierte Zufallsvariable Z gilt:  $\operatorname{E(Z)}=0$ und $\o
 - Ob dies gut funktioniert liegt sehr stark an der Verteilung der Daten
 - Überlegen Sie sich daher welche Distribution der Daten vorliegt
 
-![IQR und Normalverteilung, Quelle: JhGuch, CC BY-SA 2.5](images/Boxplot_vs_PDF.svg "Boxplot"){ height=400px  }
+![IQR und Normalverteilung, Quelle: JhGuch, CC BY-SA 2.5](images/Boxplot_vs_PDF.svg "Boxplot"){ height=400px }
 
 # Daten Encoding
 
 ## Definition Feature
 
-**Definition**: Ein *Feature* ist ein individuell messbare Eigenschaft oder Charakteristik eines Phänomens.
+**Definition**: Ein _Feature_ ist ein individuell messbare Eigenschaft oder Charakteristik eines Phänomens.
 
 ### Kategorisches Feature
 
-Ein *Kategorisches Feature* lässt sich über eine diskreten Menge ausdrücken.
+Ein _Kategorisches Feature_ lässt sich über eine diskreten Menge ausdrücken.
 
 ### Numerisches Feature
 
-Ein *Numerisches Feature* lässt ist nur über eine kontinuierliche Menge ausdrücken.
+Ein _Numerisches Feature_ lässt ist nur über eine kontinuierliche Menge ausdrücken.
 
 ### Beispiele
 
@@ -294,11 +297,11 @@ Sei $M$ eine diskrete Menge von kategorischen Labeln, dann ist das **Label Encod
 
 ### Beispiel: M = {Apfel, Birne, Zitrone}
 
-|Label   |   Label Encoding |
-|:-:|:-:|
-| Apfel  | 1  |
-| Birne   | 2  |
-| Zitrone  | 3  |
+|  Label  | Label Encoding |
+| :-----: | :------------: |
+|  Apfel  |       1        |
+|  Birne  |       2        |
+| Zitrone |       3        |
 
 ### Verwendung
 
@@ -310,15 +313,15 @@ Sei $M$ eine diskrete Menge mit $n$ kategorischen Labeln, dann ist das **One-Hot
 
 ### Beispiel: M = {Apfel, Birne, Zitrone}
 
-| Apfel  | Birne  | Zitrone  |
-|:-:|:-:|:-:|
-| 1  | 0 | 0 |
-| 0  | 1 | 0 |
-| 0  | 0 | 1 |
+| Apfel | Birne | Zitrone |
+| :---: | :---: | :-----: |
+|   1   |   0   |    0    |
+|   0   |   1   |    0    |
+|   0   |   0   |    1    |
 
 ### Verwendung
 
-OneHot Encoding kann vor allem für für **Nominale Daten** verwendet werden, da diese *keine* natürliche Reihenfolge aufweisen.
+OneHot Encoding kann vor allem für für **Nominale Daten** verwendet werden, da diese _keine_ natürliche Reihenfolge aufweisen.
 
 ## Referenzen
 

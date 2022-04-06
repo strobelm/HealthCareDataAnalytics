@@ -1,16 +1,15 @@
 ---
 title:
-- Healthcare Data Analytics
+  - Healthcare Data Analytics
 author:
-- Dr. Michael Strobel
+  - Dr. Michael Strobel
 subtitle:
-- Data Cleaning, Data Pipelines und Binäre Klassifikation 
+  - Data Cleaning, Data Pipelines und Binäre Klassifikation
 date:
-- 03.04.2022
+  - 03.04.2022
 classoption:
-- aspectratio=1610,9pt
---- 
-
+  - aspectratio=1610,9pt
+---
 
 ## Inhalt
 
@@ -25,7 +24,7 @@ classoption:
 
 - Umgang mit fehlenden Datenpunkten
 - Daten Pipelines
-- Binäre Klassifikationsaufgaben  
+- Binäre Klassifikationsaufgaben
 - Konfusionsmatrix
 - Precision / Recall
 
@@ -35,7 +34,7 @@ classoption:
 
 ### Definition: Beobachtungseinheit
 
-Die kleinste Einheit einer statistischen Auswertung, an der Beobachtungen durchgeführt werden, ist die *Beobachtungseinheit (oder Versuchseinheit)*.
+Die kleinste Einheit einer statistischen Auswertung, an der Beobachtungen durchgeführt werden, ist die _Beobachtungseinheit (oder Versuchseinheit)_.
 
 Eine Beobachtungseinheit kann z.B. der einzelne Patient sein, wenn er nur einmal beobachtet wurde, oder der Patient zu einem bestimmten Zeitpunkt, wenn der Patient mehrfach untersucht wurde und besteht aus einem oder mehr Features.
 
@@ -71,12 +70,12 @@ Fehlende Daten kommen häufig vor und können sich erheblich auf die aus den Dat
 
 Andere Programmiersprachen nutzen andere Schlüsselwörter, z.B. `null`, `Nil`, `undefined`
 
-![heart data](images/heart_data.png){ width=300px  }
+![heart data](images/heart_data.png){ width=300px }
 
 ## Umgang mit fehlenden Daten
 
 Viele Algorithmen erwarten, dass es keine fehlenden Daten einer Beobachtungseinheit gibt. Daher müssen diese Vorverarbeitet (engl. preprocessed) werden.
-Diese Arbeitsschritt wird als *data cleaning* bezeichnet und enthält oft auch die Behandlung von Outliern.
+Diese Arbeitsschritt wird als _data cleaning_ bezeichnet und enthält oft auch die Behandlung von Outliern.
 
 Es gibt zwei gängige Möglichkeiten mit fehlenden Daten umzugehen:
 
@@ -96,11 +95,11 @@ Es gibt zahlreiche Möglichkeit fehlende Daten zu ersetzen, die einzige formale 
 
 ### Intro
 
-![Bildquelle: https://hazelcast.com/glossary/data-pipeline/](images/data_pipeline.png){ width=400px  }
+![Bildquelle: https://hazelcast.com/glossary/data-pipeline/](images/data_pipeline.png){ width=400px }
 
 ## Daten Pipeline
 
-Eine *Datenpipeline* ist eine Reihe von Datenverarbeitungsschritten, die in Reihe geschaltet sind, wobei der Output eines Schrittes der Input des nächsten Elements ist.
+Eine _Datenpipeline_ ist eine Reihe von Datenverarbeitungsschritten, die in Reihe geschaltet sind, wobei der Output eines Schrittes der Input des nächsten Elements ist.
 
 Formal: seien $X_1,..., X_n$ beliebige nicht leere Mengen. Seien $f_1, ..., f_n$ Funktionen mit $f_1: X_1 \rightarrow X_2, f_2: X_2 \rightarrow X_3, ..., f_n: X_{n-1} \rightarrow X_n$.
 
@@ -119,7 +118,7 @@ Konkret heißt das: $X_1$ ist die Menge der Input Daten und $X_n$ ist die Menge 
 
 ## Beispiel: Heart Data
 
-![](images/pipe_vis.png){ width=400px  }
+![](images/pipe_vis.png){ width=400px }
 
 ## Data Pipelines in der Praxis
 
@@ -152,11 +151,11 @@ Darüber hinaus kann es sehr viel weitere Schritte in den jeweiligen Pipeline ge
 
 #### Supervised Learning Problemstellung
 
-Beim überwachten Lernen geht es darum, die Verbindung zwischen zwei Datensätzen zu erlernen: die beobachteten Daten $X$, der sogenannte *Input*, und eine weitere Variable $y$, die wir vorhersagen wollen und die als *target* bezeichnet wird.
+Beim überwachten Lernen geht es darum, die Verbindung zwischen zwei Datensätzen zu erlernen: die beobachteten Daten $X$, der sogenannte _Input_, und eine weitere Variable $y$, die wir vorhersagen wollen und die als _target_ bezeichnet wird.
 
 ## Beispiel
 
-![](images/data_sample.png){ width=400px  }
+![](images/data_sample.png){ width=400px }
 
 ## Klassifikation
 
@@ -164,9 +163,9 @@ Beim überwachten Lernen geht es darum, die Verbindung zwischen zwei Datensätze
 
 - Gegeben seien Inputdaten $X$ die zu zwei oder mehreren verschiedenen **diskreten** Klassen gehören und Angaben (Labels) zu welcher Klasse sie gehören
 - Ziel ist es bei weiteren Inputdaten, die nicht klassifiziert (gelabelt) wurden, die passende Klasse vorherzusagen
-- Gibt es nur zwei verschiedene Klassen sprechen wir von *Binärer Klassifikation*: positives und negatives Label
+- Gibt es nur zwei verschiedene Klassen sprechen wir von _Binärer Klassifikation_: positives und negatives Label
 
-#### Beispiele  
+#### Beispiele
 
 - Klassifikation: Handschrift in ASCII Zeichen Umwandeln
 - Binäre Klassifikation: Herzkrankheit ja oder nein
@@ -175,7 +174,7 @@ Beim überwachten Lernen geht es darum, die Verbindung zwischen zwei Datensätze
 
 ### Zu Anfang jedes Machine Learning Projektes sollten Sie die Daten aufteilen
 
-- Aufteilung erfolgt in einen *Trainingsdatensatz* und einen *Testdatensatz*
+- Aufteilung erfolgt in einen _Trainingsdatensatz_ und einen _Testdatensatz_
 - Der Trainingsdatensatz wird zur Definition und Verbesserung eines Machine Learning Algorithmus eingesetzt
 - Der Testdatensatz wird benutzt um die Qualität des Machine Learning Algorithmus zu beurteilen
 - Eine gute Richtlinie sind: 80% Trainingsdatensatz und 20% Testdatensatz
@@ -197,15 +196,15 @@ Beim überwachten Lernen geht es darum, die Verbindung zwischen zwei Datensätze
 
 ### Definition: binäre Konfusionsmatrix
 
-|    | Echt positiv: $r_p + f_n$    | Echt negativ: $f_p + r_n$    |   |
-|--- |--- |--- |--- |
-|  Vorhersage positiv: $r_p + f_p$  | richtig positiv: $r_p$    | falsch positiv: $f_p$    |  $\sum$ alle positiven Vorhersagen |
-|  Vorhersage negativ: $f_p + r_n$  | falsch negativ: $f_n$    | richtig negativ: $r_n$    |  $\sum$ alle negativen Vorhersagen |
-|    | $\sum$ alle positiven Labels | $\sum$ alle negativen Labels|    |
+|                                 | Echt positiv: $r_p + f_n$    | Echt negativ: $f_p + r_n$    |                                   |
+| ------------------------------- | ---------------------------- | ---------------------------- | --------------------------------- |
+| Vorhersage positiv: $r_p + f_p$ | richtig positiv: $r_p$       | falsch positiv: $f_p$        | $\sum$ alle positiven Vorhersagen |
+| Vorhersage negativ: $f_p + r_n$ | falsch negativ: $f_n$        | richtig negativ: $r_n$       | $\sum$ alle negativen Vorhersagen |
+|                                 | $\sum$ alle positiven Labels | $\sum$ alle negativen Labels |                                   |
 
 ## Visualisierung Konfusionsmatrix
 
-![](images/confusion_matrix_tf_no_vals.png "bar"){ width=350px  }
+![](images/confusion_matrix_tf_no_vals.png "bar"){ width=350px }
 
 ## Precision und Recall
 
@@ -227,7 +226,7 @@ $$F_1\text{ score := } 2 \cdot \frac{\mathrm{Precision} \cdot \mathrm{Recall}}{\
 
 ## Precision Recall, Visualisierung
 
-![Precision und Recall, Walber CC BY-SA 4.0](images/Precisionrecall.svg "bar"){ width=350px  }
+![Precision und Recall, Walber CC BY-SA 4.0](images/Precisionrecall.svg "bar"){ width=350px }
 
 ## Referenzen
 
