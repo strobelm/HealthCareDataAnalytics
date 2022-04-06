@@ -8,3 +8,8 @@ repos:
     - id: nbqa-pyupgrade
       args: [--py38-plus]
 
+- repo: https://github.com/igorshubovych/markdownlint-cli
+  rev: v0.31.1
+  hooks:
+  - id: markdownlint
+    args: [--fix, --disable, MD013]
