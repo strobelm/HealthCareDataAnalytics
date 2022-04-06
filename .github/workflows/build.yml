@@ -55,8 +55,8 @@ jobs:
         tlmgr install tcolorbox pgf etoolbox environ trimspaces   
         # vorlesungen
         tlmgr install beamertheme-metropolis pgfopts
-    - name: Build skript file
-      run: cd src/skript && bash build.sh && cd ..
+    # - name: Build skript file
+    #   run: cd src/skript && bash build.sh && cd ..
     - name: Build vorlesungs files
       run: cd src/vorlesungen && bash script.sh && cd ..
     - name: Archive production artifacts
@@ -64,7 +64,7 @@ jobs:
       with:
         name: build-files
         path: |
-          HealthCareDataAnalytics.pdf
+          # HealthCareDataAnalytics.pdf
           build/*.pdf
     - name: Commit files
       run: |
