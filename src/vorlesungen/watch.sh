@@ -7,9 +7,10 @@ do
     cd $d
     for mdfile in *.md; do
       pdffile=${mdfile%.md}.pdf
-      if [ $mdfile -nt $pdffile ]; then
+      outfile=../../../build/$pdffile
+      if [ $mdfile -nt $outfile ]; then
         echo $mdfile
-        pandoc -t beamer --include-in-header ../header.tex $mdfile -o ../../../build/$pdffile
+      pandoc -t beamer --include-in-header ../header.tex $mdfile -o $outfile
         echo "Done"
       fi
     done
