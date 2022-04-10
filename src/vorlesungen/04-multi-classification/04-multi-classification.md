@@ -93,7 +93,6 @@ $$
 ## ROC Curve / AUC Score, cont'd
 
 ![Géron, Aurélien. "Hands-on machine learning with scikit-learn and tensorflow: Concepts." ](images/roc-curve.png){ width=400px }
-TODO: Bild
 
 ## ROC Curve / AUC Score, Metrik
 
@@ -127,9 +126,34 @@ Sei $N$ die Anzahl der zu unterscheidenden Klassen $K_1, ..., K_N$
   - Beantwortet Frage ob Beobachtungseinheit zu einer festen Klasse $K_n$ oder festen Klasse $K_m$ mit $n,m = 1...N$ gehört.
   - Somit müssen $N \cdot (N-1) / 2$ Klassifikatoren trainiert werden
 
+## Mehrere Klassen mit binären Klassifikatoren
+
 ### Beispiel: Handschrift Erkennung der Zahlen 0 bis 9
 
 - OvR: 10 Klassifikatoren
 - OvO: 45 Klassifikatoren
 
 Die meisten binären Klassifikatoren sollten mit OvR genutzt werden, eine Ausnahme ist die Support Vector Machine.
+
+## Metrik für mehrklassen Klassifikatoren
+
+Analog zur binären Klassifikation lässt sich auch für mehrere Klassen eine Konfusionsmatrix definieren.
+
+### Definition: Mehrklassen Konfusionsmatrix
+
+Gegeben seien $N \in \mathbb N$ verschiedene Klassen. Wir definieren _mehrklassen Konfusionsmatrix_ $C \in \mathbb{N}^{N \times N}$ mit
+$C_{i,j}, 1 \leq i,j \leq N$ die Anzahl der Beobachtungseinheit die deren wahre Klasse $i$ ist aber vom Klassifikator als $j$ klassifiziert wurde.
+
+## Beispiel: Konfusionsmatrix
+
+![scikit-learn Dokumentation, https://scikit-learn.org/stable/auto_examples/model_selection/plot_confusion_matrix.htm](images/conf-matrix-flowers.png){ width=400px }
+
+## Precision / Recall für mehrere Labels
+
+Precision und Recall sind nur für binäre Klassifikatoren definiert.
+
+Um dies für mehrere Klassen zu generalisieren gibt es mehrere Ansätze:
+
+- Mikro: Summe der echten Positiven, falschen Negativen und falschen Positiven über alle Klassen.
+- Makro: Berechnung der Metrik für jedes Label und Ermittlung ihres ungewichteten Mittelwerts.
+- Gewichtet: Wie Makro nur, dass diese nach der Häufigkeit des Auftretens einer Klasse gewichtet ins Ergebnis eingehen.
