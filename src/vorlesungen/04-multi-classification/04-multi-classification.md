@@ -100,6 +100,17 @@ $$
 - Pures Raten hat ein AUC von $0.5$
 - Werte von $\leq 0.5$ sind Anzeichen eines schlechten binären Klassifikators
 
+## Wann P-R und wann ROC Kurve?
+
+### ROC und Precision / Recall Kurve sind sehr ähnlich. Wann sollten sie was verwenden?
+
+- Verwenden Sie die P-R Kurve wenn die positiv Klasse selten ist
+- Verwenden Sie die P-R Kurve wenn mehr an den falsch positiven Klassifikationen interessiert sind
+- Sonst verwenden sie die ROC Kurve
+
+![Géron, Aurélien. "Hands-on machine learning with scikit-learn and tensorflow: Concepts." ](images/roc-curve.png){ width=200px }
+![Géron, Aurélien. "Hands-on machine learning with scikit-learn and tensorflow: Concepts." ](images/precision-vs-recall.png){ width=200px }
+
 # Klassifikation mehrerer Klassen
 
 ## Typen von Klassifikation mehrerer Klassen
@@ -112,6 +123,28 @@ $$
   - Support Vector Machine Klassifikator
   - Logistische Regression Klassifikator
 - Binäre Klassifikatoren können über "Umwege" mehr als Zwei Klassen unterscheiden
+
+## Mehrklassenerkennung über Wahrscheinlichkeiten
+
+Gegeben seien $N$ verschiedene Klassen $K:= \{K_1, ..., K_N\}$
+
+### Intuition
+
+- Viele Machine Learning Algorithmen berechnen Wahrscheinlichkeiten dass eine Beobachtungseinheit $X = (x_1, ..., x_n)$ zu einer Klasse $y \in K$ gehört
+- Die Klassifikation erfolgt dann über die größte Wahrscheinlichkeit
+
+### Etwas formaler
+
+- Formaler gesprochen berechnen die Algorithmen die Wahrscheinlichkeiten $P(y|X) = P(y|x_1, ..., x_n)$ mit $y \in K$
+- Damit ist die Klassifikation definiert über $\hat{y} := \argmax_y P(y|X)$
+
+### Beispiel
+
+```
+In [0]: probabilities = [0.1, 0.2, 0.8, 0.5]
+In [1]: np.argmax(probabilities)
+Out[1]: 2
+```
 
 ## Strategien für binäre Klassifikatoren zur Mehrklassenerkennung
 
@@ -157,3 +190,5 @@ Um dies für mehrere Klassen zu generalisieren gibt es mehrere Ansätze:
 - Mikro: Summe der echten Positiven, falschen Negativen und falschen Positiven über alle Klassen.
 - Makro: Berechnung der Metrik für jedes Label und Ermittlung ihres ungewichteten Mittelwerts.
 - Gewichtet: Wie Makro nur, dass diese nach der Häufigkeit des Auftretens einer Klasse gewichtet ins Ergebnis eingehen.
+
+Nutzen Sie "gewichtet" für asymmetrisch verteilte Datensätze, also wenn eine Klasse signifikant weniger auftritt als eine andere Klasse.
