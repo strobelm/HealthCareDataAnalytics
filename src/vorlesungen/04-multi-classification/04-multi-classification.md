@@ -25,7 +25,6 @@ classoption:
 
 - Precision / Recall tradeoff
 - Multi-Klassen Klassifikation
-- Training von Modellen
 
 # Precision / Recall tradeoff
 
