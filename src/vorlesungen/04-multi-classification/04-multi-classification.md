@@ -136,7 +136,7 @@ Gegeben seien $N$ verschiedene Klassen $K:= \{K_1, ..., K_N\}$
 ### Etwas formaler
 
 - Formaler gesprochen berechnen die Algorithmen die Wahrscheinlichkeiten $P(y|X) = P(y|x_1, ..., x_n)$ mit $y \in K$
-- Damit ist die Klassifikation definiert über $\hat{y} := \argmax_y P(y|X)$
+- Damit ist die Klassifikation definiert über $\hat{y} := \underset{y\in K}{\operatorname{argmax}} P(y|X)$
 
 ### Beispiel
 
