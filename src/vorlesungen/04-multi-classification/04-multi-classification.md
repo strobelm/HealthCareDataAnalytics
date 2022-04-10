@@ -140,7 +140,7 @@ Gegeben seien $N$ verschiedene Klassen $K:= \{K_1, ..., K_N\}$
 ### Beispiel
 
 ```
-In [0]: probabilities = [0.1, 0.2, 0.8, 0.5]
+In [0]: probabilities = [0.0, 0.2, 0.5, 0.3]
 In [1]: np.argmax(probabilities)
 Out[1]: 2
 ```
