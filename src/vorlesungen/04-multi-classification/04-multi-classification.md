@@ -74,15 +74,15 @@ $$
 
 ## Precision / Recall tradeoff, Beispiel
 
-![Géron, Aurélien. "Hands-on machine learning with scikit-learn and tensorflow: Concepts." ](images/precision-recall-numbers.png){ width=400px }
+![Géron, Aurélien. "Hands-on machine learning with scikit-learn and tensorflow" ](images/precision-recall-numbers.png){ width=400px }
 
 ## Precision / Recall tradeoff, Plot Precision und Recall
 
-![Géron, Aurélien. "Hands-on machine learning with scikit-learn and tensorflow: Concepts." ](images/precision-recall-2-curves.png){ width=400px }
+![Géron, Aurélien. "Hands-on machine learning with scikit-learn and tensorflow" ](images/precision-recall-2-curves.png){ width=400px }
 
 ## Precision / Recall tradeoff, Plot Precision gegen Recall
 
-![Géron, Aurélien. "Hands-on machine learning with scikit-learn and tensorflow: Concepts." ](images/precision-vs-recall.png){ width=400px }
+![Géron, Aurélien. "Hands-on machine learning with scikit-learn and tensorflow" ](images/precision-vs-recall.png){ width=400px }
 
 ## ROC Curve / AUC Score
 
@@ -92,7 +92,7 @@ $$
 
 ## ROC Curve / AUC Score, cont'd
 
-![Géron, Aurélien. "Hands-on machine learning with scikit-learn and tensorflow: Concepts." ](images/roc-curve.png){ width=400px }
+![Géron, Aurélien. "Hands-on machine learning with scikit-learn and tensorflow" ](images/roc-curve.png){ width=400px }
 
 ## ROC Curve / AUC Score, Metrik
 
@@ -108,8 +108,8 @@ $$
 - Verwenden Sie die P-R Kurve wenn mehr an den falsch positiven Klassifikationen interessiert sind
 - Sonst verwenden sie die ROC Kurve
 
-![Géron, Aurélien. "Hands-on machine learning with scikit-learn and tensorflow: Concepts." ](images/roc-curve.png){ width=200px }
-![Géron, Aurélien. "Hands-on machine learning with scikit-learn and tensorflow: Concepts." ](images/precision-vs-recall.png){ width=200px }
+![Géron, Aurélien. "Hands-on machine learning with scikit-learn and tensorflow" ](images/roc-curve.png){ width=200px }
+![Géron, Aurélien. "Hands-on machine learning with scikit-learn and tensorflow" ](images/precision-vs-recall.png){ width=200px }
 
 # Klassifikation mehrerer Klassen
 
@@ -192,3 +192,10 @@ Um dies für mehrere Klassen zu generalisieren gibt es mehrere Ansätze:
 - Gewichtet: Wie Makro nur, dass diese nach der Häufigkeit des Auftretens einer Klasse gewichtet ins Ergebnis eingehen.
 
 Nutzen Sie "gewichtet" für asymmetrisch verteilte Datensätze, also wenn eine Klasse signifikant weniger auftritt als eine andere Klasse.
+
+# Regression
+
+## Ausblick Regression
+
+Kommende Vorlesung behandeln wir Regression:
+![](images/linreg.png){ width=400px }
