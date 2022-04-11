@@ -38,9 +38,17 @@ $$\text{Precision := }\frac{TP}{TP+FP}$$
 
 $$\text{Recall := }\frac{TP}{TP+FN}$$
 
+#### Specificity: Wie viele der **nicht** relevanten Objekte wurden erkannt?
+
+$$\text{Specificity := }\frac{TN}{TN+FP}$$
+
 ## Precision Recall, Visualisierung
 
 ![Precision und Recall, Walber CC BY-SA 4.0](../03-preprocessing-classification/images/Precisionrecall.svg "bar"){ width=350px }
+
+## Specificity, Visualisierung
+
+![Specificity, Walber CC BY-SA 4.0](images/sensi-speci.svg){ width=300px }
 
 ## Precision / Recall tradeoff
 
@@ -86,7 +94,7 @@ $$
 ## ROC Curve / AUC Score
 
 - receiver operating characteristic (ROC) ist ein weiteres Mittel zur Visualisierung der Performance von binären Klassifikatoren
-- True Positive Rate (= Recall) gegen Falsch Positiv Rate (FPR)
+- True Positive Rate (= Recall) gegen 1-Specificity (Falsch Positiv Rate (FPR))
 - Die Fläche unter der ROC Kurve wird als _area under the curve (AUC)_ bezeichnet
 
 ## ROC Curve / AUC Score, cont'd
