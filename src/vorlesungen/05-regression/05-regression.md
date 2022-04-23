@@ -24,7 +24,7 @@ classoption:
 - Gradientenabstieg
 - Training von Modellen
 
-# Intro
+## Intro
 
 - Bis jetzt war für uns Machine Learning eine "Black-Box"
 - Sie haben verschiedene Methoden benutzt wie z.B.
@@ -34,8 +34,6 @@ classoption:
   - ...
 - Jetzt kümmern wir uns darum wie man diese Verfahren trainiert werden
 - Beispielhaft schauen wir uns die _Lineare Regression_ an
-
-# Lineare Regression
 
 ## Lineare Regression - Beispiel
 
@@ -107,12 +105,77 @@ _Beweis an der Tafel_
 
 ## Lineare Regression - Geschlossene Lösung Praxis
 
-#### Problem:
-
 Matrix $X^T X$ zu invertieren ist
 
 - teuer zu berechnen: $O(n^3)$
 - Anfällig für numerische Instabilität (Konditionszahl)
 - Für Machine Learning Algorithmen kann die Datenmenge zu groß werden
 
-Daher wird in der Praxis hierfür ein _iterativer_ und _approximativer_ Algorithmus verwendet. Hier ist insbesondere der _Gradietenabstieg_ zu nennen.
+Daher wird in der Praxis hierfür ein _iterativer_ und _approximativer_ Algorithmus verwendet. Hier ist insbesondere der _Gradientenabstieg_ zu nennen.
+
+## Gradientenabstieg - Idee
+
+Gegeben sei eine Funktion $f: \mathbb R^n \rightarrow \mathbb R$. Gesucht wird das Optimum
+
+$$\underset{x \in \mathbb R^n}{\min} f(x)$$
+
+#### Gradientenverfahren
+
+Gegeben sei ein Startpunkt $x^0\in\mathbb R^n$. Dann definiert sich das _Gradientenverfahren_ mit der Iterationsvorschrift
+
+$$x^{k+1} = x^k+\eta^kd^k,\quad k=0,1,\ldots$$
+
+wobei $\eta^k > 0$ die _Schrittweite_ bezeichnet und $d^k$ eine _Abstiegsrichtung_. Im Kontext von Machine Learning nennt man die Schrittweite _learning rate_.
+
+Meist wird $d^k$ wie folgt gewählt: $d^k = -D^k\nabla f(x^k)$ wobei $D \in \mathbb R^{n\times n}$ wird. Für $D = I$ (Einheitsmatrix) bekommen wir das klassische Gradientenverfahren mit der _Richtung des steilsten Abstiegs_.
+
+## Gradientenabstieg - Visualisierung 1
+
+TODO: Normaler Abstieg
+
+## Gradientenabstieg - Visualisierung 1
+
+TODO: Schrittweite zu klein
+
+## Gradientenabstieg - Visualisierung 1
+
+TODO: Schrittweite zu gross
+
+## Gradientenabstieg - MSE
+
+Für unser Beispiel der lineare Regression gilt dann
+$$\nabla_\alpha \operatorname{MSE}(\alpha X, y) = \frac{2}{n}X^T(X\alpha-y)$$
+
+Und somit gilt für die Regression:
+
+$$\alpha^{k+1} = \alpha^k-\eta^k\frac{2}{n}X^T(X\alpha-y),\quad k=0,1,\ldots$$
+
+wobei wir $\alpha^{0}$ z.B. mit $(1,\ldots, 1)$ initialisieren.
+
+## Gradientenabstieg - Verschiedene Ausprägungen
+
+- Batch Gradient Descent
+- Stochastic Gradient Descent
+- Mini Batch Gradient Descent
+
+## Early Stopping
+
+## Gradientenabstieg - Verbesserungen
+
+- Momentum
+- ADAM
+- RMSProps
+
+## Regression Verallgemeinerung
+
+## Polynomielle Regression
+
+## Logistische Regression
+
+## Softmax Klassifikation
+
+## Regularisierung - Intro
+
+## Regularisierung - $L_1$
+
+## Regularisierung - $L_2$
