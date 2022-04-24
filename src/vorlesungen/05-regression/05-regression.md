@@ -37,9 +37,11 @@ classoption:
 
 ## Lineare Regression - Beispiel
 
-TODO: Bild random Punkte
+![](images/rand_points.png){ width=400px }
 
-TODO: Bild random Punkte mit Regressionsgerade
+## Lineare Regression - Beispiel
+
+![](images/reg.png){ width=400px }
 
 ## Features Verallgemeinerung
 
@@ -129,53 +131,129 @@ wobei $\eta^k > 0$ die _Schrittweite_ bezeichnet und $d^k$ eine _Abstiegsrichtun
 
 Meist wird $d^k$ wie folgt gewählt: $d^k = -D^k\nabla f(x^k)$ wobei $D \in \mathbb R^{n\times n}$ wird. Für $D = I$ (Einheitsmatrix) bekommen wir das klassische Gradientenverfahren mit der _Richtung des steilsten Abstiegs_.
 
+## Gradientenabstieg
+
+- Der Gradientenabstieg ist das meist genutzte Verfahren im Machine Learning
+- Die Konvergenz, also das finden des Minimums, ist nicht trivial
+- Probleme die Auftreten können
+
+  - Schrittweite zu klein
+  - Schrittweite zu groß
+  - Lokale Minima / Wendepunkte
+
+- Daten im Machine Learning sind normalerweise hochdimensional, daher ist Konvergenz des Gradientenabstiegs Forschungsthema
+- Viele der Fortschritte im Machine Learning gehen auch auf Verbesserungen im Gradientenabstieg zurück
+
 ## Gradientenabstieg - Visualisierung 1
 
-TODO: Normaler Abstieg
+#### Normaler Gradientenabstieg
 
-## Gradientenabstieg - Visualisierung 1
+![Géron, Aurélien. "Hands-on machine learning with scikit-learn and tensorflow" ](images/grad_normal.png){ width=400px }
 
-TODO: Schrittweite zu klein
+## Gradientenabstieg - Visualisierung 2
 
-## Gradientenabstieg - Visualisierung 1
+#### Schrittweite zu gering
 
-TODO: Schrittweite zu gross
+![Géron, Aurélien. "Hands-on machine learning with scikit-learn and tensorflow" ](images/grad_step_low.png){ width=400px }
+
+## Gradientenabstieg - Visualisierung 3
+
+#### Schrittweite zu hoch
+
+![Géron, Aurélien. "Hands-on machine learning with scikit-learn and tensorflow" ](images/grad_to_high.png){ width=400px }
+
+## Gradientenabstieg - Visualisierung 4
+
+#### Lokales Minimum
+
+![Géron, Aurélien. "Hands-on machine learning with scikit-learn and tensorflow" ](images/grad_non_linear.png){ width=400px }
 
 ## Gradientenabstieg - MSE
 
 Für unser Beispiel der lineare Regression gilt dann
-$$\nabla_\alpha \operatorname{MSE}(\alpha X, y) = \frac{2}{n}X^T(X\alpha-y)$$
+$$\nabla_\alpha \operatorname{MSE}(\alpha X, y) = \frac{2}{m}X^T(X\alpha-y)$$
 
 Und somit gilt für die Regression:
 
-$$\alpha^{k+1} = \alpha^k-\eta^k\frac{2}{n}X^T(X\alpha-y),\quad k=0,1,\ldots$$
+$$\alpha^{k+1} = \alpha^k-\eta^k\frac{2}{m}X^T(X\alpha-y),\quad k=0,1,\ldots$$
 
 wobei wir $\alpha^{0}$ z.B. mit $(1,\ldots, 1)$ initialisieren.
 
 ## Gradientenabstieg - Verschiedene Ausprägungen
 
+Neben der Schrittweitensteuerung ist die Auswahl der Trainingsdaten ein wichtiger Parameter, hier gibt es mehrere gängige Verfahren
+
 - Batch Gradient Descent
 - Stochastic Gradient Descent
 - Mini Batch Gradient Descent
 
-## Early Stopping
+## Gradientenabstieg - Batch Gradient Descent
 
-## Gradientenabstieg - Verbesserungen
+Beim _Batch Gradient Descent_ die gesamten Trainingsdaten **gesamte** auf einmal verarbeitet.
 
-- Momentum
-- ADAM
-- RMSProps
+Der Gradient bei der Linearen Regression ist folgender:
+$$\nabla_\alpha \operatorname{MSE}(\alpha X, y) = \frac{2}{m}X^T(X\alpha-y)$$
 
-## Regression Verallgemeinerung
+Daher wird in **jedem Schritt der gesamte Datensatz verarbeitet**.
 
-## Polynomielle Regression
+Dies kann bei sehr großen Datensätzen sehr viel Aufwand bedeuten: Speicher- und CPU/GPU Zeit steigt linear mit der Anzahl der Beobachtungseinheiten.
 
-## Logistische Regression
+## Gradientenabstieg - Stochastic Gradient Descent
 
-## Softmax Klassifikation
+Beim _Stochastic Gradient Descent_ wird nur **eine** Beobachtungseinheit auf einmal verarbeitet.
 
-## Regularisierung - Intro
+Speicher- und CPU/GPU Zeit sind hier **sehr gering**, aber das Konvergenzverhalten ist nicht optimal, d.h. das Optimum wird selten erreicht.
 
-## Regularisierung - $L_1$
+## Gradientenabstieg - Epoch / Online Learning / Out of Core
 
-## Regularisierung - $L_2$
+#### Definition: Epoch
+
+Wir nennen das Training mit nur einem Teil der Trainingsdaten _Epoch_.
+
+#### Definition: Online Learning
+
+Wenn wir ein Modell _inkrementell_ trainiert werden kann nennen wir dies _online learning_.
+
+#### Definition: Out of Core
+
+Wenn ein Modell auch trainiert werden kann, wenn der Datensatz der zum Training genutzt wird **nicht** in den Hauptspeicher des Computers geladen werden kann, nennen wir dies _out-of-core_ learning.
+
+## Gradientenabstieg - Mini-Batch Gradient Descent
+
+Kombiniert man diese Ideen erhält man den _Mini-Batch Gradient Descent_. Hier wird nur einer **Teilmenge** der Beobachtungseinheiten in jeder Epoch trainiert.
+
+Speicher- und CPU/GPU Zeit sind hier **gering**, aber das Konvergenzverhalten liegt zwischen Stochastic Gradient Descent und Batch Gradient Descent.
+
+## Gradientenabstieg - Vergleichsbild
+
+#### Verschiedene Gradientenabstiegsmethoden im Vergleich
+
+![Géron, Aurélien. "Hands-on machine learning with scikit-learn and tensorflow" ](images/grad_comp.png){ width=400px }
+
+## Gradientenabstieg - Auswahl
+
+Seien $m$ die Anzahl der Beobachtungseinheit und $n$ die Anzahl der Features, dann
+
+![Géron, Aurélien. "Hands-on machine learning with scikit-learn and tensorflow" ](images/comp_table.png){ width=500px }
+
+<!-- ## Early Stopping -->
+
+<!-- ## Gradientenabstieg - Verbesserungen -->
+
+<!-- - Momentum -->
+<!-- - ADAM -->
+<!-- - RMSProps -->
+
+<!-- ## Regression Verallgemeinerung -->
+
+<!-- ## Polynomielle Regression -->
+
+<!-- ## Logistische Regression -->
+
+<!-- ## Softmax Klassifikation -->
+
+<!-- ## Regularisierung - Intro -->
+
+<!-- ## Regularisierung - $L_1$ -->
+
+<!-- ## Regularisierung - $L_2$ -->
