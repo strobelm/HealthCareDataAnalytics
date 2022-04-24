@@ -77,7 +77,7 @@ Gegeben seien features $x_1, \ldots, x_n \in \mathbb R^m, n,m \in \mathbb N$ ein
 
 $$\hat y = \alpha_0 + \alpha_1 \cdot x_1 + ... + \alpha_N \cdot x_n$$
 
-oder in Kurzschreibweise über die Matrix Multiplikation mit $\alpha = (\alpha_0, ..., \alpha_N)$ und $X = (1, x_1, ..., x_N)$
+oder in Kurzschreibweise über die Matrix Multiplikation mit $\alpha = (\alpha_0, ..., \alpha_n)$ und $X = (1, x_1, ..., x_n)$
 
 $$ \hat y = X \alpha \in \mathbb R $$
 
@@ -87,9 +87,9 @@ Damit kann nun ein Label vorhergesagt werden. Wie kommen wir jetzt an so ein $\a
 
 Erinnern Sie sich an Ihre Numerik beziehungsweise Statistik Einführungvorlesung. Hier haben Sie die _lineare Ausgleichsrechnung_ kennengelernt. Wenn Sie die "beste" Lösung $\hat \alpha$ für alle Traningsdaten erhalten wollen müssen Sie den MSE minimieren.
 
-$$ \underset{\alpha \in \mathbb R^n}{\min} \operatorname{MSE}(\alpha X, \hat y)= \underset{\alpha \in \mathbb R^n}{\min} \frac{1}{n}{{\sum_{i=1}}}^n((\alpha X)^{n}-(\hat{{y_{i}}} )^{n})^2 $$
+$$ \hat \alpha := \underset{\alpha \in \mathbb R^n}{\min} \operatorname{MSE}(\alpha)= \underset{\alpha \in \mathbb R^n}{\min} \frac{1}{n}{{\sum_{i=1}}}^n((X \alpha )^{i}-(\hat{{y_{i}}} )^{i})^2 $$
 
-$$\Leftrightarrow \underset{\alpha \in \mathbb R^n}{\min} \| \alpha \cdot X - \hat y\|_{2}^{2}$$
+$$\Leftrightarrow \hat \alpha = \underset{\alpha \in \mathbb R^n}{\min} \| X \alpha   - \hat y\|_{2}^{2}$$
 
 <!-- $\underset{\alpha \in \mathbb R}{\min} \| \alpha \cdot X - \hat y\|_{2}$ -->
 
@@ -109,9 +109,14 @@ _Beweis an der Tafel_
 
 Matrix $X^T X$ zu invertieren ist
 
-- teuer zu berechnen: $O(n^3)$
-- Anfällig für numerische Instabilität (Konditionszahl)
-- Für Machine Learning Algorithmen kann die Datenmenge zu groß werden
+- Teuer zu berechnen: naiv $O(n^3)$
+- Anfällig für numerische Instabilität (hier kann SVD verwendet werden)
+- Machine Learning Probleme sind meistens zu groß
+
+Über Singulärwertzerlegung (SVD)
+
+- SVD Lösung des Problems immer noch $O(n^2)$
+- Für Machine Learning Algorithmen kann die Datenmenge immer noch zu groß werden
 
 Daher wird in der Praxis hierfür ein _iterativer_ und _approximativer_ Algorithmus verwendet. Hier ist insbesondere der _Gradientenabstieg_ zu nennen.
 
@@ -171,13 +176,26 @@ Meist wird $d^k$ wie folgt gewählt: $d^k = -D^k\nabla f(x^k)$ wobei $D \in \mat
 ## Gradientenabstieg - MSE
 
 Für unser Beispiel der lineare Regression gilt dann
-$$\nabla_\alpha \operatorname{MSE}(\alpha X, y) = \frac{2}{m}X^T(X\alpha-y)$$
+$$\nabla_\alpha \operatorname{MSE}(  \alpha) = \frac{2}{m}X^T(X\alpha-y)$$
 
 Und somit gilt für die Regression:
 
 $$\alpha^{k+1} = \alpha^k-\eta^k\frac{2}{m}X^T(X\alpha-y),\quad k=0,1,\ldots$$
 
 wobei wir $\alpha^{0}$ z.B. mit $(1,\ldots, 1)$ initialisieren.
+
+## Gradientenabstieg - Schrittweitensteuerung
+
+#### Wie wählt man am besten die Schritweite $\eta^k$ für $k = 1,\ldots$?
+
+Es gibt mehrere Möglichkeiten
+
+- Konstant
+- Heuristischer konstanter Wert basierenden auf Features / Beobachtungseinheiten
+- Adaptiv z.B. Armijo Regel
+
+Details können Sie bei Bedarf nachlesen z.B. in
+`Ulbrich, Michael, and Stefan Ulbrich. Nichtlineare Optimierung. Springer-Verlag, 2012.`
 
 ## Gradientenabstieg - Verschiedene Ausprägungen
 
@@ -192,7 +210,7 @@ Neben der Schrittweitensteuerung ist die Auswahl der Trainingsdaten ein wichtige
 Beim _Batch Gradient Descent_ die gesamten Trainingsdaten **gesamte** auf einmal verarbeitet.
 
 Der Gradient bei der Linearen Regression ist folgender:
-$$\nabla_\alpha \operatorname{MSE}(\alpha X, y) = \frac{2}{m}X^T(X\alpha-y)$$
+$$\nabla_\alpha \operatorname{MSE}(\alpha) = \frac{2}{m}X^T(X\alpha-y)$$
 
 Daher wird in **jedem Schritt der gesamte Datensatz verarbeitet**.
 
@@ -203,6 +221,8 @@ Dies kann bei sehr großen Datensätzen sehr viel Aufwand bedeuten: Speicher- un
 Beim _Stochastic Gradient Descent_ wird nur **eine** Beobachtungseinheit auf einmal verarbeitet.
 
 Speicher- und CPU/GPU Zeit sind hier **sehr gering**, aber das Konvergenzverhalten ist nicht optimal, d.h. das Optimum wird selten erreicht.
+
+Die Features müssen **skaliert** werden, so dass alle Features in die Berechnung mit eingehen und der Abstieg nicht von wenigen Features mit großem Absolutbetrag dominiert werden.
 
 ## Gradientenabstieg - Epoch / Online Learning / Out of Core
 
@@ -235,6 +255,11 @@ Speicher- und CPU/GPU Zeit sind hier **gering**, aber das Konvergenzverhalten li
 Seien $m$ die Anzahl der Beobachtungseinheit und $n$ die Anzahl der Features, dann
 
 ![Géron, Aurélien. "Hands-on machine learning with scikit-learn and tensorflow" ](images/comp_table.png){ width=500px }
+
+## Referenzen
+
+- Ulbrich, Michael, and Stefan Ulbrich. Nichtlineare Optimierung. Springer-Verlag, 2012.
+- Géron, A. (2019). Hands-on machine learning with Scikit-Learn, Keras, and TensorFlow: Concepts, tools, and techniques to build intelligent systems. O'Reilly Media.
 
 <!-- ## Early Stopping -->
 
