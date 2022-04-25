@@ -77,7 +77,16 @@ Gegeben seien features $x_1, \ldots, x_n \in \mathbb R^m, n,m \in \mathbb N$ ein
 
 $$\hat y = \alpha_0 + \alpha_1 \cdot x_1 + ... + \alpha_N \cdot x_n$$
 
-oder in Kurzschreibweise über die Matrix Multiplikation mit $\alpha = (\alpha_0, ..., \alpha_n)$ und $X = (1, x_1, ..., x_n)$
+oder in Kurzschreibweise über die Matrix Multiplikation mit $\alpha = (\alpha_0, ..., \alpha_n)$ und
+
+$$
+X = \begin{pmatrix}
+1&x_1^T \\
+1&x_2^T \\
+\ldots & \\
+1 & x_n^T
+\end{pmatrix}
+$$
 
 $$ \hat y = X \alpha \in \mathbb R $$
 
