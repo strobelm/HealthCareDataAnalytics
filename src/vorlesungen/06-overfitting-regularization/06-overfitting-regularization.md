@@ -48,7 +48,7 @@ $(X_1) \mapsto (1,X_1, X_1^2)$
 
 ##### Zwei Feature, Grad zwei
 
-$(X_1, X_2) \mapsto (1,X_1, X_2, X_1^2, X_1 X^2, X_2^2)$
+$(X_1, X_2) \mapsto (1,X_1, X_2, X_1^2, X_1 X_2, X_2^2)$
 
 ## Polynomielle Regression - Zahlenbeispiel
 
@@ -84,11 +84,11 @@ Analog lässt sich auch die Konvergenztheorie des Gradientenabstiegs der letzen 
 
 Polynomielle Features lassen sich auch benutzen um nichtlineare Zusammenhänge zwischen Features zu erfassen.
 
-![Géron, Aurélien. "Hands-on machine learning with scikit-learn and tensorflow" ](images/lin_sep1.png){ width=400px }
+![Géron, Aurélien. "Hands-on machine learning with scikit-learn and tensorflow" ](images/lin_sep1.png){ width=300px }
 
 ## Polynomielle Features
 
-![Géron, Aurélien. "Hands-on machine learning with scikit-learn and tensorflow" ](images/lin_sep2.png){ width=400px }
+![Géron, Aurélien. "Hands-on machine learning with scikit-learn and tensorflow" ](images/lin_sep2.png){ width=300px }
 
 ## Underfitting / Overfitting
 
@@ -149,7 +149,7 @@ Dies nennt man den _Bias / Varianz Trade-off_.
 
 ## Learning Curve
 
-#### Wie erkennt man nun, dass man einen guten Kompromiss zwischen Bias und Varianz gefunden hat?
+#### Wie erkennt man, dass man einen guten Kompromiss zwischen Bias und Varianz gefunden hat?
 
 Ein Weg zu sehen wie gut unser Modell ist und wie der Bias / Varianz Trade-off sich verhält ist die _Learning Curve_. Hierfür vergleicht man den Fehler den das Modell bei steigender Anzahl von Trainingsdaten auf den Tranings- und Testdaten macht.
 
@@ -157,9 +157,9 @@ Ein Weg zu sehen wie gut unser Modell ist und wie der Bias / Varianz Trade-off s
 
 ## Interpretation: Learning Curve
 
-Generell möchte man bei der Learning Curve mit mehr Trainingsdaten einen **abfallenden Fehler** beobachten. Dies ist ein Zeichen, dass der Algorithmus mit mehr Trainingsdaten lernt. Zudem möchte man, dass die Kurve der Trainingsdaten sich annähert und keine Lücke hat. Dies ist ein Zeichen von gutem Bias / Varianz tradeoff.
+Generell möchte man bei der Learning Curve mit mehr Trainingsdaten einen **abfallenden Fehler** beobachten. Dies ist ein Zeichen, dass der Algorithmus mit mehr Trainingsdaten lernt. Zudem möchte man, dass die Kurve der Trainingsdaten und Testdaten sich annähert und keine Lücke hat. Dies ist ein Zeichen von gutem Bias / Varianz trade-off.
 
-Typische Probleme:
+#### Typische Probleme
 
 - Fehler des Modells ist in Trainingsdaten und Testdaten hoch: Underfitting.
 - Fehler in den Testdaten höher als in den Trainingsdaten: Overfitting
@@ -168,11 +168,15 @@ Typische Probleme:
 
 #### Lineare Regression: Underfitting
 
+Hier sehen wir Underfitting, denn der Root Mean Square Error ist für Trainings- und Testdaten hoch.
+
 ![Géron, Aurélien. "Hands-on machine learning with scikit-learn and tensorflow" ](images/learning_curve_lin.png){ width=400px }
 
 ## Learning Curve: Polynomielle Regression
 
 #### Polynomielle Regression: Overfitting
+
+Hier sehen wir Overfitting, denn die Kurve der Testdaten liegt über der Trainingsdaten.
 
 ![Géron, Aurélien. "Hands-on machine learning with scikit-learn and tensorflow" ](images/learning_curve_poly.png){ width=400px }
 
@@ -232,6 +236,12 @@ Generell neigt die $L_1$ Regularisierung dazu möglichst viele Koeffizienten auf
 ## Visualisierung: $L_1$ vs $L_2$ Regularisierung
 
 ![Géron, Aurélien. "Hands-on machine learning with scikit-learn and tensorflow" ](images/l1_vs_l2.png){ width=400px }
+
+## Early Stopping
+
+Ein weiterer Weg das Modell zu regularisieren ist _early stopping_. Hierbei stoppt man den Gradientenabstieg sobald der Fehler in der **Testmenge** nicht mehr sinkt beziehungsweise sogar steigt.
+
+![Géron, Aurélien. "Hands-on machine learning with scikit-learn and tensorflow" ](images/early_stopping.png){ width=400px }
 
 ## Referenzen
 
