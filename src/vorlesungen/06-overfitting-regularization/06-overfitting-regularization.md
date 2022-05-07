@@ -4,7 +4,7 @@ title:
 author:
   - Dr. Michael Strobel
 subtitle:
-  - Regression und Training von Modellen
+  - Overfitting und Regularisierung
 date:
   - 02.05.2022
 classoption:
