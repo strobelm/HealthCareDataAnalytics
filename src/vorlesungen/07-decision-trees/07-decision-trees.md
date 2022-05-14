@@ -4,9 +4,9 @@ title:
 author:
   - Dr. Michael Strobel
 subtitle:
-  - Decision Tress und Random Forests
+  - Decision Tress
 date:
-  - 02.05.2022
+  - 09.05.2022
 classoption:
   - aspectratio=1610,9pt
 ---
@@ -87,11 +87,13 @@ Ein weiterer Weg das Modell zu regularisieren ist _early stopping_. Hierbei stop
 
 ## Decision Trees - Visualisierung Klassifikation
 
-![](images/decisiontree_small.png){ width=400px }
+### Decision Tree auf dem Titanic Dataset
+
+![Decision Tree der Tiefe 2](images/decisiontree_small.png){ width=400px }
 
 ## Decision Trees - Visualisierung 2
 
-![](images/decisiontree_large.png){ width=400px }
+![Decision Tree der Tiefe 5](images/decisiontree_large.png){ width=550px }
 
 ## Decision Trees - Wie liest man einen Decision Tree
 
@@ -100,9 +102,16 @@ Ein weiterer Weg das Modell zu regularisieren ist _early stopping_. Hierbei stop
   - links der der Unterbaum der die Frage mit **ja** beantwortet
   - rechts der der Unterbaum der die Frage mit **nein** beantwortet
 - Die Blätter enthalten die jeweilige Klasse
-- weitere Daten:
-  - wie viele Testdaten wurden dem Blatt zugeordnet (samples)
-  - welcher Klasse wurden diese zugeordnet (value)
+
+![](images/decisiontree_small.png){ width=250px }
+
+## Decision Tree - weitere Daten
+
+Der Decision Tree enthält weitere Informationen
+
+- wie viele Testdaten wurden dem Blatt zugeordnet (samples)
+- welcher Klasse wurden diese zugeordnet (value)
+- mit diesen Daten können Wahrscheinlichkeiten berechnet werden (klassisches Urnenmodell)
 
 ![](images/decisiontree_small.png){ width=250px }
 
@@ -124,6 +133,7 @@ Ein weiterer Weg das Modell zu regularisieren ist _early stopping_. Hierbei stop
 - Beispiel am Blatt links unten: $G = 1 - (\frac{9}{170})^2 - (\frac{161}{170})^2 = 0.1$
 - Ein Wert von $0.1$ ist gut, der Decision Tree ist sich sicher
 - Der Nachbarknoten hat einen Gini Wert von $0.5$, d.h. er rät
+- Das finden des optimalen Baumes ist NP Schwer, es gibt polynomielle Algorithmen die gute Lösungen finden
 
 ![](images/decisiontree_small.png){ width=250px }
 
@@ -150,7 +160,8 @@ Decision Tree neigen zu extremen Overfitting wenn der Parameterraum nicht begren
 - Maximale Tiefe des Baums (max_depth)
 - Minimale Anzahl der Beobachtungseinheiten um einen Knoten aufzuteilen (min_samples_split)
 - Minimale Anzahl der Beobachtungseinheiten in einem Blatt (min_samples_leaf)
-- Maximale Anzahl der Features um Knoten Aufzuteilen (max_features)
+- Maximale Anzahl der Features (max_features)
+- ...
 
 ## Decision Trees -- Regression
 
@@ -167,6 +178,8 @@ Der Tree zur Regression ähnelt dem der Klassifikation: statt einer Klasse wird 
 ![Géron, Aurélien. "Hands-on machine learning with scikit-learn and tensorflow" ](images/regression_tree_parabola.png){ width=500px }
 
 ## Decision Trees -- Regression Rauschen
+
+#### Decision Trees neigen zu extremen Overfitting
 
 ![Géron, Aurélien. "Hands-on machine learning with scikit-learn and tensorflow" ](images/regression_tree_overfitting.png){ width=500px }
 
