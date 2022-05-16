@@ -4,7 +4,7 @@ title:
 author:
   - Dr. Michael Strobel
 subtitle:
-  - Random Forests und Clustering
+  - Feature Engineering, Random Forests und Data Science Checkliste
 date:
   - 16.05.2022
 classoption:
