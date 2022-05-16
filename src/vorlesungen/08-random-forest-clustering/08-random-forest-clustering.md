@@ -165,13 +165,13 @@ Hinweis: Automatisieren Sie so viel wie möglich, damit Sie leicht an neue Daten
 8. Konvertieren Sie die Daten in ein Format, das Sie leicht bearbeiten können
 9. Sicherstellen, dass sensible Informationen gelöscht oder geschützt werden (z. B. anonymisiert).
 10. Überprüfen Sie den Umfang und die Art der Daten (Zeitreihen, Stichproben, geografische Daten usw.).
-11. Nehmen Sie eine Stichprobe, legen Sie sie beiseite und sehen Sie sie nie an!
+11. Testdaten erstellen, legen Sie sie beiseite und sehen Sie sie nie an!
 
 ## Erkunden Sie die Daten
 
 #### Hinweis
 
-Versuchen Sie, für diese Schritte Einblicke von einem Experten vor Ort zu erhalten.
+Versuchen Sie, für diese Schritte Wissen von einem Experten zu erhalten.
 
 1. Erstellen Sie eine Kopie der Daten für die Exploration (ggf. durch Verkleinerung auf eine überschaubare Größe)
 2. Erstellen Sie ein Jupyter-Notebook, um Ihre Datenexploration zu dokumentieren.
@@ -181,7 +181,7 @@ Versuchen Sie, für diese Schritte Einblicke von einem Experten vor Ort zu erhal
 - Typ (kategorisch, int/float, usw.)
 - % der fehlenden Werte
 - Rauschen und Art des Rauschens (stochastisch, Ausreißer, Rundungsfehler, usw.)
-- Nützlichkeit für die Aufgabe
+- Beitrag für die Fragestellung
 - Art der Verteilung (Gauß, gleichmäßig, logarithmisch, usw.)
 
 ## Erkunden Sie die Daten, Teil 2
@@ -189,7 +189,7 @@ Versuchen Sie, für diese Schritte Einblicke von einem Experten vor Ort zu erhal
 4. Bei supervised learning Target Variable(n) bestimmen
 5. Visualisierung der Daten.
 6. Untersuchen Sie die Korrelationen zwischen den Attributen.
-7. Studieren Sie, wie Sie das Problem von Hand lösen würden.
+7. Wie würden Sie das Problem von Hand lösen?
 8. Identifizieren Sie die Transformationen, die Sie eventuell anwenden möchten (Polynomielle Features, usw.)
 9. Identifizieren Sie zusätzliche Daten, die nützlich wären (Feature Engineering)
 10. Dokumentieren Sie, was Sie herausgefunden haben.
@@ -199,9 +199,9 @@ Versuchen Sie, für diese Schritte Einblicke von einem Experten vor Ort zu erhal
 #### Wichtige Regeln:
 
 - Arbeiten Sie mit Kopien der Daten (lassen Sie den Originaldatensatz unangetastet ).
-- Schreiben Sie Funktionen für alle Transformationen, die Sie anwenden:
-  - Damit Sie die Daten leicht vorbereiten können, wenn Sie das nächste Mal einen neuen Datensatz erhalten
-  - Damit Sie diese Transformationen in zukünftigen Projekten anwenden können
+- Schreiben Sie Funktionen für alle Transformationen, die Sie anwenden, damit
+  - Sie die Daten leicht vorbereiten können, wenn Sie das nächste Mal einen neuen Datensatz erhalten
+  - Sie diese Transformationen in zukünftigen Projekten anwenden können
   - Um den Testdatensatz zu bereinigen und vorzubereiten
   - Um neue Beobachtungseinheiten zu bereinigen und vorzubereiten, sobald Ihr Modell in Betrieb ist
 
