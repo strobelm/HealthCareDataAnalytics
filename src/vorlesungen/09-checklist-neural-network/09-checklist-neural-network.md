@@ -169,11 +169,22 @@ Versuchen Sie, für diese Schritte Wissen von einem Experten zu erhalten.
 
 #### Neuron
 
-![Géron, Aurélien. "Hands-on machine learning with scikit-learn and tensorflow" ](images/neuron.png){ width=300px }
+![Géron, Aurélien. "Hands-on machine learning with scikit-learn and tensorflow" ](images/neuron.png){ width=350px }
 
 ## Artificial Neural Networks - Intro, cont'd
 
 ![Nrets - CC-BY-2.5](images/neural-net-bio.png){ width=300px }
+
+## Artificial Neural Networks - Anwendung
+
+#### Neuronale Netze werden heutzutage breit eingesetzt
+
+- Bilderkennung
+- Spracherkennung
+- Sprachsynthese
+- Textgenerierung
+- Spiele: Schach / Go
+- ...
 
 ## Artificial Neural Networks - Künstliches Neuron
 
@@ -211,27 +222,27 @@ Kombinieren wir mehrere dieser künstlichen Neuronen ensteht ein _künstliches n
 #### Sigmoid Funktion
 
 $$
-S(x):= \frac{1}{1+\exp^{-x}}
+S(x):= \frac{1}{1+\exp({-x})}
 $$
 
 - Klassische Aktivierungsfunktion und modelliert menschliche Neuronen
 - Teuer zu berechnen
 - Ableitung ist sehr flach und es kommt zum sog. _vanishing gradient_ Problem d.h. das Training für große Netze wird sehr langsam, da die Gradienten klein werden
 
-![Sigmoid Funktion](images/1920px-Logistic-curve.svg.png) {width=250px }
+![Sigmoid Funktion](images/1920px-Logistic-curve.svg.png){ height=150px }
 
 ## Aktivierungsfunktion - ReLU
 
 #### ReLU - rectified linear unit
 
-$$R(x): \max(0,x)$$
+$$R(x):= \max(0,x)$$
 
 - Schnell und einfach zu berechnen
 - Gradient einfach und schnell zu berechnen
 - Wird heute meist in der Praxis eingesetzt
 - Es kann immer noch zu vanishing gradient Problemen kommen
 
-![ReLU Funktion - Laughsinthestocks - CC BY-SA 4.0](images/2560px-Activation_rectified_linear.svg.png) {width=250px }
+![ReLU Funktion - Laughsinthestocks - CC BY-SA 4.0](images/2560px-Activation_rectified_linear.svg.png){width=250px }
 
 ## Aktivierungsfunktion - weitere Beispiele
 
@@ -240,25 +251,25 @@ $$R(x): \max(0,x)$$
 - Klassische Aktivierungsfunktionen: tanh, Treppenfunktion
 - Moderne Aktivierungsfunktionen: leaky ReLU (nicht 0 for $x < 0$)
 
-![Géron, Aurélien. "Hands-on machine learning with scikit-learn and tensorflow" ](<images/activation\ functions.png>){ width=300px }
+![Géron, Aurélien. "Hands-on machine learning with scikit-learn and tensorflow"](<images/activation\ functions.png>){ width=450px }
 
 ## Klassifikation: Loss Funktion / Kreuzentropie
 
 - Unsere neuronalen Netzwerke geben Wahrscheinlichkeiten aus für die Klassifikation
 - Um zu messen wie gut das Netz vorhersagen kann und um zu Trainieren wird die _log loss_ Funktion eingesetzt, diese wird auch _Kreuzentropie_ genannt
 
-$$Loss(y,\hat y)\ = -y\log\hat{y} - (1-y)\log(1-\hat{y})$$
+$$\mathbf{Loss}(y,\hat y)\ = -y\log\hat{y} - (1-y)\log(1-\hat{y})$$
 
-![Loss Funktion](<images/log\ loss.png>){ width=300px }
+![Loss Funktion](<images/log\ loss.png>){ width=250px }
 
 ## Multi Label Klassifikation - Softmax
 
-- Die Softmax Funktion wird verwendet um Multi-Klassen Klassifikationsaufgaben zu lösen und wird idr nur im **output layer** verwendet
+- Die Softmax Funktion wird verwendet um Multi-Klassen Klassifikationsaufgaben zu lösen und wird in der Regel nur im **Output Layer** verwendet
 - Sie ist ähnlich zu $\arg \max$, aber differenzierbar
 - Sie gibt die Wahrscheinlichkeit an dass eine Beobachtungseinheiten $x$ von der Klasse $i$ ist, gegeben der Gewichte $w$
 - Softmax sorgt dafür, dass der Outputlayer Werte zwischen 0 und 1 ausgibt und diese sich zu 1 addieren (also eine Wahrscheinlichkeitsverteilung darstellen)
 
-$$P(y=i\mid \mathbf{x}) = \frac{e^{\mathbf{x}^\mathsf{T}\mathbf{w}_i}}{\sum_{k=1}^K e^{\mathbf{x}^\mathsf{T}\mathbf{w}_k}}$$
+$$P(y=i\mid \mathbf{x}) = \frac{e^{\mathbf{x} \cdot \mathbf{w}_i}}{\sum_{k=1}^K e^{\mathbf{x} \cdot \mathbf{w}_k}}$$
 
 ## Klassifikation - Visualisierung
 
@@ -266,40 +277,50 @@ $$P(y=i\mid \mathbf{x}) = \frac{e^{\mathbf{x}^\mathsf{T}\mathbf{w}_i}}{\sum_{k=1
 
 <!-- ![Géron, Aurélien. "Hands-on machine learning with scikit-learn and tensorflow" ](images/SoftmaxLayer.svg){ width=300px } -->
 
-![Géron, Aurélien. "Hands-on machine learning with scikit-learn and tensorflow" ](<images/softmax\ pipe.png>){ width=300px }
+![Géron, Aurélien. "Hands-on machine learning with scikit-learn and tensorflow" ](<images/softmax\ pipe.png>){ width=400px }
 
 ## Klassifikation - Topologie
 
 #### Typische Topologie für Klassifikation
 
-|             Parameter             |          Binäre Klassifikation          |      Multi-Klassen Klassifikation       |
-| :-------------------------------: | :-------------------------------------: | :-------------------------------------: |
-|          Input Neuronen           | Eines pro Feature (Bilder: 1 pro Pixel) | Eines pro Feature (Bilder: 1 pro Pixel) |
-|           Hidden Layers           |                   1-5                   |                   1-5                   |
-|        Neuronen pro Layer         |                 10-100                  |                 10-100                  |
-|          Output Neuronen          |                    1                    |                    1                    |
-| Hidden Layer Aktivierungsfunktion |                  ReLU                   |                  ReLU                   |
-|    Output Aktivierungsfunktion    |                 Sigmoid                 |                 Softmax                 |
-|               Loss                |        Log Loss = Kreuzentropie         |        Log Loss = Kreuzentropie         |
+|             Parameter             |  Binäre Klassifikation   | Multi-Klassen Klassifikation |
+| :-------------------------------: | :----------------------: | :--------------------------: |
+|          Input Neuronen           |    Eines pro Feature     |      Eines pro Feature       |
+|           Hidden Layers           |           1-5            |             1-5              |
+|        Neuronen pro Layer         |          10-100          |            10-100            |
+|          Output Neuronen          |            1             |              1               |
+| Hidden Layer Aktivierungsfunktion |           ReLU           |             ReLU             |
+|    Output Aktivierungsfunktion    |         Sigmoid          |           Softmax            |
+|               Loss                | Log Loss = Kreuzentropie |   Log Loss = Kreuzentropie   |
+
+**Hinweis**: bei Bildern entspricht 1 Pixel = 1 Feature
 
 ## Regression
 
-- Output layer besteht aus einem Knoten ohne Aktivierungsfunktion
-- Loss Funktion ist Mean Square Error
-
 #### Typische Topologie
 
-|             Parameter             |             Typischer Wert              |
-| :-------------------------------: | :-------------------------------------: |
-|          Input Neuronen           | Eines pro Feature (Bilder: 1 pro Pixel) |
-|           Hidden Layers           |                   1-5                   |
-|        Neuronen pro Layer         |                 10-100                  |
-|          Output Neuronen          |             1 pro Dimension             |
-| Hidden Layer Aktivierungsfunktion |                  ReLU                   |
-|    Output Aktivierungsfunktion    |                  Keine                  |
-|               Loss                |            Mean Square Error            |
+|             Parameter             |  Typischer Wert   |
+| :-------------------------------: | :---------------: |
+|          Input Neuronen           | Eines pro Feature |
+|           Hidden Layers           |        1-5        |
+|        Neuronen pro Layer         |      10-100       |
+|          Output Neuronen          |         1         |
+| Hidden Layer Aktivierungsfunktion |       ReLU        |
+|    Output Aktivierungsfunktion    |       Keine       |
+|               Loss                | Mean Square Error |
+
+**Hinweis**: ein neuronales Netz kann mehrere Regressionen Gleichzeitig ausführen, dafür müssen nur mehrere Output Neuronen definiert werden.
 
 ## Trainingsschritte
+
+1. Modell initialisieren (Gewichte / Bias)
+2. Aufteilung in Mini-Batches
+3. Training des Netzwerks mit Minibatches und Loss Funktion mit Gradient Descent
+4. Update der Gewichte und Bias anhand von 3.
+5. Sind alle Epochen durchlaufen oder Validierungsfehler steigt? $\rightarrow$ Abbruch
+6. Wiederholung mit dem nächsten Mini-Batch
+
+![Géron, Aurélien. "Hands-on machine learning with scikit-learn and tensorflow" ](images/learning_curve.png){ width=300px }
 
 ## Regularisierung
 
@@ -309,4 +330,4 @@ $$P(y=i\mid \mathbf{x}) = \frac{e^{\mathbf{x}^\mathsf{T}\mathbf{w}_i}}{\sum_{k=1
 - Early Stopping
 - Moderne Neuronale Netze benutzen den sog. _Dropout_ zur Regularisierung, hierbei werden Teile des Neuronalen Netzwerks temporär eingefroren und nicht trainiert
 
-![Scitkit Learn - https://scikit-learn.org/stable/auto_examples/neural_networks/plot_mlp_alpha.html](images/nn_reg.png){ width=300px }
+![$L_2$ Regularisierung - Scitkit Learn - https://scikit-learn.org/stable/auto_examples/neural_networks/plot_mlp_alpha.html](images/nn_reg.png){ width=300px }
