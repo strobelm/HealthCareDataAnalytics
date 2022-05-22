@@ -258,7 +258,9 @@ $$R(x):= \max(0,x)$$
 - Unsere neuronalen Netzwerke geben Wahrscheinlichkeiten aus für die Klassifikation
 - Um zu messen wie gut das Netz vorhersagen kann und um zu Trainieren wird die _log loss_ Funktion eingesetzt, diese wird auch _Kreuzentropie_ genannt
 
-$$\mathbf{Loss}(y,\hat y)\ = -y\log\hat{y} - (1-y)\log(1-\hat{y})$$
+#### Für den Binären Fall für $y, \hat y \in \mathbb R^N$
+
+$$\mathbf{CrossEntropy}:= \mathbf{Log Loss}(y,\hat y)\ = \sum_{i=1}^N -y_i\log\hat{y}_i - (1-y_i)\log(1-\hat{y}_i)$$
 
 ![Loss Funktion](<images/log\ loss.png>){ width=250px }
 
@@ -313,12 +315,17 @@ $$P(y=i\mid \mathbf{x}) = \frac{e^{\mathbf{x} \cdot \mathbf{w}_i}}{\sum_{k=1}^K 
 
 ## Trainingsschritte
 
+#### Wenn Sie Bibliotheken wie TensorFlow einsetzen
+
+0. Data Preprocessing (Normalisierung nicht vergessen, NN sind sehr sensitiv diesbezüglich)
 1. Modell initialisieren (Gewichte / Bias)
 2. Aufteilung in Mini-Batches
 3. Training des Netzwerks mit Minibatches und Loss Funktion mit Gradient Descent
 4. Update der Gewichte und Bias anhand von 3.
 5. Sind alle Epochen durchlaufen oder Validierungsfehler steigt? $\rightarrow$ Abbruch
 6. Wiederholung mit dem nächsten Mini-Batch
+
+Die scikit-learn Klassen sind deutlich weniger mächtig, aber einfacher einzusetzen.
 
 ![Géron, Aurélien. "Hands-on machine learning with scikit-learn and tensorflow" ](images/learning_curve.png){ width=300px }
 
