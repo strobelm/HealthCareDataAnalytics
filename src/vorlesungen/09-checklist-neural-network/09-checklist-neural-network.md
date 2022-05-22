@@ -15,115 +15,15 @@ classoption:
 
 ### Letzte Woche
 
-- Wiederholung Regularisierung
-- Decision Trees
-
-### Diese Woche
-
 - Feature Importance
 - Feature Engineering
 - Random Forests
 - Data Science Projekt Checkliste
 
-## Feature Engineering
+### Diese Woche
 
-Unter _Feature Engineering_ verstehen wir Transformationen die aus Input Features neue Features generieren. Einige Methoden sind
-
-- Diskretisieren von kontinuierlichen Features. z.B. Alter in Jahren $\rightarrow$ Kohorten (Baby, Kleinkind, Jugendlicher, Erwachsener, Rentner)
-- Extraktion von Text Features: "Duff Gordon, Sir. Cosmo Edmund" $\rightarrow$ Sir
-- Kombination von Features: $(Fare, SibSp, Parch) \rightarrow \frac{Fare}{SibSp + Parch + 1}$ "Entgeld pro Person"
-
-## Feature Importance
-
-- Features unterscheiden sich wie wichtig sie für einen Algorithmus sind.
-- Manche Algorithmen erlauben es zu sehen für wie wichtig Sie ein Feature halten.
-- Dies nennen wir _Feature Importance_
-- Dies dient mehreren Zwecken
-  - können unwichtige Features einfach weg lassen (spart Trainingszeit / Speicher)
-  - Es hilft später Erklärungen abzugeben wie der Algorithmus entschieden hat
-
-## Feature Importance: Random Forest und Titanic Dataset
-
-![](images/feat_importance.png){ width=350px }
-
-## Random Forests, Intro
-
-### "Mehrere Köpfe entscheiden besser als einer"
-
-#### Ensemble Methoden
-
-- Sogenannte _Ensemble Methoden_ kombinieren mehrere Machine Learning Algorithmen
-- Dabei können verschiedene Methoden (SVM, Decision Tree, Regression...) oder
-- Mehrere Instanzen einer Methode kombiniert werden
-
-![Géron, Aurélien. "Hands-on machine learning with scikit-learn and tensorflow" ](images/01_training_diff_models.png){ width=300px }
-
-## Ensemble Methoden, Entscheidungsfindung
-
-Wie entscheiden Ensemble Methoden?
-
-### Klassikation
-
-- _Hard Voting_: Klassifikatoren Stimmen ab und die Mehrheit gewinnt
-- _Soft Voting_: Wahrscheinlichkeit aufgrund der relativen Häufigkeit
-
-### Regression
-
-- Bei der Regression wird in der Regel der Mittelwert gebildet
-- Es sind natürlich weitere Methoden möglich (gewichteter Mittelwert, geometrisches Mittel, ...)
-
-## Voting Classifier, Beispiel
-
-![Géron, Aurélien. "Hands-on machine learning with scikit-learn and tensorflow" ](images/02_voting_class.png){ width=250px }
-
-**Titanic Dataset**: hat Person X überlebt?
-
-- Klassifikator 1: Ja!
-- Klassifikator 2: Nein!
-- Klassifikator 3: Ja!
-
-**Hard Voting**: Ja, **Soft Voting**: [2/3 Ja, 1/3 Nein]
-
-## Bagging und Pasting
-
-- Beim _Bagging (boostrap aggregating) oder Pasting_ wird _ein Algorithmus und mehrere Instanzen_ trainiert
-- Hierbei werden die Trainingsdaten zufällig in kleinere Mengen aufgeteilt.
-- Wenn diese Mengen _mit Zurücklegen_ bestimmt werden sprechen wir von _Bagging_
-- Wenn diese Mengen _ohne Zurücklegen_ bestimmt werden sprechen wir von _Pasting_
-
-## Bagging und Pasting, Visualisierung
-
-### Bei Bagging können Beobachtungseinheiten mehrfach vorkommen, bei Pasting nicht
-
-![Jtbchamp99 - CC BY-SA 4.0](images/Bootstrap_set_generation.png){ width=150px }
-
-## Bagging und Pasting, Beispiel
-
-### Decision Tree und 500 Decision Trees mit Bagging
-
-- Bagging mit Decision Trees senkt sowohl Bias als auch Varianz
-- Trainingskosten sind deutlich höher, da viele Decision Trees trainiert und dann kombiniert werden
-
-![Géron, Aurélien. "Hands-on machine learning with scikit-learn and tensorflow" ](images/03_decision_trees_with_bagging.png){ width=400px }
-
-## Out Of Bag Auswertung
-
-**Kurze Erinnerung an die Übung**: Bei Cross-Validation (Kreuzvalidierung) wird ein Teil **Trainingsdaten** nicht zum Traning aber zur Validierung verwendet. Dabei bleiben die Testdaten unberührt.
-
-![Gufosowa - CC BY-SA 4.0](images/cross-valid.png){width=300px }
-
-Um die Performance von Bagging und Pasting bereits beim Training zu beobachten kann _Out-of-Bag_ Evaluation verwendet werden: hier werden ein Algorithmus nur mit ca. 2/3 der Instanzen trainiert und 1/3 zur Cross-Validierung verwendet.
-
-## Random Forest
-
-- Ein _Random Forest_ sind Decision Trees die mit Bagging kombiniert werden
-- Jeder Decision Tree wird nur mit einer begrenzten Menge von Features trainiert, dies führt zu deutlich unterschiedlichen Trees
-- Jeder Baum hat zwar damit eine Höhere Varianz und Bias aber kombiniert sinkt die Varianz und Bias deutlich
-- Klassifikation erfolgt über Hard Voting (predict), aber auch Soft Voting ist möglich (predict_proba)
-
-## Random Forest, Visualisierung
-
-![https://www.tibco.com/de/reference-center/what-is-a-random-forest](images/random-forest-diagram.svg){ width=400px }
+- Fortsetzung Data Science Projekt Checkliste
+- Neuronale Netze
 
 ## Machine Learning Projekt Checkliste
 
@@ -229,7 +129,7 @@ Versuchen Sie, für diese Schritte Wissen von einem Experten zu erhalten.
 
 ## Auswahl der besten Modelle
 
-1. Trainieren Sie viele Quick-and-Dirty-Modelle aus verschiedenen Kategorien (z. B. linear, naive Bayes, SVM, Random Forest, neuronale Netze, etc.) mit Standardparametern.
+1. Trainieren Sie viele Quick-and-Dirty-Modelle aus verschiedenen Kategorien (z. B. lineare Regression, SVM, Random Forest, neuronale Netze, etc.) mit Standardparametern.
 2. Messen und vergleichen Sie deren Leistung.
 
 - Verwenden Sie für jedes Modell eine Cross-Validation und berechnen Sie den Mittelwert und die Standardabweichung des Performance.
@@ -245,12 +145,6 @@ Versuchen Sie, für diese Schritte Wissen von einem Experten zu erhalten.
    die verschiedene Arten von Fehlern machen.
 
 ## Fine Tuning der Modelle
-
-<!-- #### Anmerkungen: -->
-
-<!-- - Für diesen Schritt sollten Sie so viele Daten wie möglich verwenden, insbesondere wenn Sie sich dem Ende der -->
-<!--   gegen Ende der Fine Tuning -->
-<!-- - Wie immer gilt: Automatisieren Sie alles was Sie können. -->
 
 1. Fine Tuning der Parameter durch Cross-Validation/GridSearch um beste Parameter für das Modell zu finden. Sie können auch Teile der Pipeline als Parameter behandeln (Auffüllen von Werten, Skalierung, Feature Auswahl etc.)
 2. Versuchen Sie Ensemble-Methoden. Die Kombination Ihrer besten Modelle führt oft zu einer besseren Leistung.
@@ -271,6 +165,148 @@ Versuchen Sie, für diese Schritte Wissen von einem Experten zu erhalten.
 
 5.  Stellen Sie sicher, dass Ihre wichtigsten Ergebnisse durch schöne Visualisierungen oder einprägsame Aussagen (z. B. "Die Klasse auf der Titanic und das Geschlecht spielen eine Entscheidende Rolle")
 
-## Referenzen
+## Artificial Neural Networks - Intro
 
-- Géron, A. (2019). Hands-on machine learning with Scikit-Learn, Keras, and TensorFlow: Concepts, tools, and techniques to build intelligent systems. O'Reilly Media.
+#### Neuron
+
+![Géron, Aurélien. "Hands-on machine learning with scikit-learn and tensorflow" ](images/neuron.png){ width=300px }
+
+## Artificial Neural Networks - Intro, cont'd
+
+![Nrets - CC-BY-2.5](images/neural-net-bio.png){ width=300px }
+
+## Artificial Neural Networks - Künstliches Neuron
+
+Sei $n \in \mathbb{N}, d_1, ..., d_n \in \mathbb{N}$, dann definieren wir
+$x_i\in \mathbb{R}^{d_i}$ als den **Input** (numerische Repräsentation der Features),
+$w_i\in \mathbb{R}^{d_i}$ als den **Gewichtung** des Input (numerische Repräsentation der Features) und
+$b \in \mathbb{R}$ als **Bias**.
+
+![Künstliches Neuron](images/1-intro-deep-neural-networks.png "bar"){ width=200px }
+
+**Schritt 1**: $S := \sum_{k=1}^n  x_i \cdot w_i  + b$
+
+Desweiteren definieren wir $f: \mathbb{R} \rightarrow \mathbb{R}$ als **Aktivierungsfunktion**, z.B. sigmoid, relu oder tanh
+
+**Schritt 2**: Output $y := f(S) = f(\sum_{k=1}^n  x_i \cdot w_i  + b)$
+
+## Artificial Neural Networks - Netz
+
+Kombinieren wir mehrere dieser künstlichen Neuronen ensteht ein _künstliches neuronales Netz_.
+
+![Künstliches Neuronales Netz](images/NN.drawio.svg.png "bar"){ width=250px }
+
+- **Trainingsschritt** mit Hilfe von Trainingsdaten und einem **Optimierungsalgorithmus** werden die Gewichte und der Bias angepasst um die Vorhersageleistung des Netzes zu verbesseren.
+- Zum Training wird eine sog. _Loss Funktion_ definiert, die am **Output** misst wie gut oder schlecht das Netz vorhersagt.
+- Training erfolgt über **Mini Batch Stochastic Gradient Descent**
+- Netzwerkgestaltung und Optimierungsalgorithmen sind aktuelle Forschungsthemen.
+
+## Aktivierungsfunktion - Intro
+
+- Ein neuronales Netzwerk besteht aus linearen Funktionen und daher ist die Kombination auch linear
+- Um nichtlineare Regression oder Klssifikation zu ermöglichen werden nichtlineare _Aktivierungsfunktionen_ auf die Knoten des Netzwerkes angewandt
+
+## Aktivierungsfunktion - Sigmoid
+
+#### Sigmoid Funktion
+
+$$
+S(x):= \frac{1}{1+\exp^{-x}}
+$$
+
+- Klassische Aktivierungsfunktion und modelliert menschliche Neuronen
+- Teuer zu berechnen
+- Ableitung ist sehr flach und es kommt zum sog. _vanishing gradient_ Problem d.h. das Training für große Netze wird sehr langsam, da die Gradienten klein werden
+
+![Sigmoid Funktion](images/1920px-Logistic-curve.svg.png) {width=250px }
+
+## Aktivierungsfunktion - ReLU
+
+#### ReLU - rectified linear unit
+
+$$R(x): \max(0,x)$$
+
+- Schnell und einfach zu berechnen
+- Gradient einfach und schnell zu berechnen
+- Wird heute meist in der Praxis eingesetzt
+- Es kann immer noch zu vanishing gradient Problemen kommen
+
+![ReLU Funktion - Laughsinthestocks - CC BY-SA 4.0](images/2560px-Activation_rectified_linear.svg.png) {width=250px }
+
+## Aktivierungsfunktion - weitere Beispiele
+
+### Weitere Aktivierungsfunktionen
+
+- Klassische Aktivierungsfunktionen: tanh, Treppenfunktion
+- Moderne Aktivierungsfunktionen: leaky ReLU (nicht 0 for $x < 0$)
+
+![Géron, Aurélien. "Hands-on machine learning with scikit-learn and tensorflow" ](<images/activation\ functions.png>){ width=300px }
+
+## Klassifikation: Loss Funktion / Kreuzentropie
+
+- Unsere neuronalen Netzwerke geben Wahrscheinlichkeiten aus für die Klassifikation
+- Um zu messen wie gut das Netz vorhersagen kann und um zu Trainieren wird die _log loss_ Funktion eingesetzt, diese wird auch _Kreuzentropie_ genannt
+
+$$Loss(y,\hat y)\ = -y\log\hat{y} - (1-y)\log(1-\hat{y})$$
+
+![Loss Funktion](<images/log\ loss.png>){ width=300px }
+
+## Multi Label Klassifikation - Softmax
+
+- Die Softmax Funktion wird verwendet um Multi-Klassen Klassifikationsaufgaben zu lösen und wird idr nur im **output layer** verwendet
+- Sie ist ähnlich zu $\arg \max$, aber differenzierbar
+- Sie gibt die Wahrscheinlichkeit an dass eine Beobachtungseinheiten $x$ von der Klasse $i$ ist, gegeben der Gewichte $w$
+- Softmax sorgt dafür, dass der Outputlayer Werte zwischen 0 und 1 ausgibt und diese sich zu 1 addieren (also eine Wahrscheinlichkeitsverteilung darstellen)
+
+$$P(y=i\mid \mathbf{x}) = \frac{e^{\mathbf{x}^\mathsf{T}\mathbf{w}_i}}{\sum_{k=1}^K e^{\mathbf{x}^\mathsf{T}\mathbf{w}_k}}$$
+
+## Klassifikation - Visualisierung
+
+#### Moderne Klassifikation mit Neuronalem Netz
+
+<!-- ![Géron, Aurélien. "Hands-on machine learning with scikit-learn and tensorflow" ](images/SoftmaxLayer.svg){ width=300px } -->
+
+![Géron, Aurélien. "Hands-on machine learning with scikit-learn and tensorflow" ](<images/softmax\ pipe.png>){ width=300px }
+
+## Klassifikation - Topologie
+
+#### Typische Topologie für Klassifikation
+
+|             Parameter             |          Binäre Klassifikation          |      Multi-Klassen Klassifikation       |
+| :-------------------------------: | :-------------------------------------: | :-------------------------------------: |
+|          Input Neuronen           | Eines pro Feature (Bilder: 1 pro Pixel) | Eines pro Feature (Bilder: 1 pro Pixel) |
+|           Hidden Layers           |                   1-5                   |                   1-5                   |
+|        Neuronen pro Layer         |                 10-100                  |                 10-100                  |
+|          Output Neuronen          |                    1                    |                    1                    |
+| Hidden Layer Aktivierungsfunktion |                  ReLU                   |                  ReLU                   |
+|    Output Aktivierungsfunktion    |                 Sigmoid                 |                 Softmax                 |
+|               Loss                |        Log Loss = Kreuzentropie         |        Log Loss = Kreuzentropie         |
+
+## Regression
+
+- Output layer besteht aus einem Knoten ohne Aktivierungsfunktion
+- Loss Funktion ist Mean Square Error
+
+#### Typische Topologie
+
+|             Parameter             |             Typischer Wert              |
+| :-------------------------------: | :-------------------------------------: |
+|          Input Neuronen           | Eines pro Feature (Bilder: 1 pro Pixel) |
+|           Hidden Layers           |                   1-5                   |
+|        Neuronen pro Layer         |                 10-100                  |
+|          Output Neuronen          |             1 pro Dimension             |
+| Hidden Layer Aktivierungsfunktion |                  ReLU                   |
+|    Output Aktivierungsfunktion    |                  Keine                  |
+|               Loss                |            Mean Square Error            |
+
+## Trainingsschritte
+
+## Regularisierung
+
+#### Für neuronale Netze gibt es verschiedene Regularisierungen
+
+- $L_2$ Regularisierung
+- Early Stopping
+- Moderne Neuronale Netze benutzen den sog. _Dropout_ zur Regularisierung, hierbei werden Teile des Neuronalen Netzwerks temporär eingefroren und nicht trainiert
+
+![Scitkit Learn - https://scikit-learn.org/stable/auto_examples/neural_networks/plot_mlp_alpha.html](images/nn_reg.png){ width=300px }
