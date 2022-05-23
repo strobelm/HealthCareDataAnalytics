@@ -4,7 +4,7 @@ title:
 author:
   - Dr. Michael Strobel
 subtitle:
-  - Feature Engineering, Random Forests und Data Science Checkliste
+  - Data Science Checkliste und Neuronale Netze
 date:
   - 16.05.2022
 classoption:
@@ -327,7 +327,7 @@ $$P(y=i\mid \mathbf{x}) = \frac{e^{\mathbf{x} \cdot \mathbf{w}_i}}{\sum_{k=1}^K 
 
 Die scikit-learn Klassen sind deutlich weniger mächtig, aber einfacher einzusetzen.
 
-![Géron, Aurélien. "Hands-on machine learning with scikit-learn and tensorflow" ](images/learning_curve.png){ width=300px }
+![Géron, Aurélien. "Hands-on machine learning with scikit-learn and tensorflow" ](images/learning_curve.png){ width=200px }
 
 ## Regularisierung
 
