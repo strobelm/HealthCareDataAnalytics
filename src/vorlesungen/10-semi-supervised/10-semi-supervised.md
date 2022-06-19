@@ -13,7 +13,7 @@ classoption:
 
 ## Inhalt
 
-### Letzte Woche
+### Letzte Vorlesung
 
 - Fortsetzung Data Science Projekt Checkliste
 - Neuronale Netze
@@ -39,9 +39,9 @@ classoption:
 
 Clustering hat sehr viele Anwendungen in der Praxis: Datenanalyse, Aufteilung von Patientenkohorten, Empfehlungen von Behandlungen, Suchmaschinen, Segmentierung von Bildern, ...
 
-Ähnlich wie bei den bereits bekannten Kategorisierungsaufgaben werden hier Beobachtungseinheiten in Klassen eingeteilt. Der große Unterschied beim Clutering ist aber, dass nur mit der Beobachtungseinheit gelernt wird und **kein** Label für das Training verwendet wird. Die meisten Algorithmen erwarten, dass die Anzahl der Label vorgegeben wird, finden dann die Kategorien selbständig.
+Ähnlich wie bei den bereits bekannten Kategorisierungsaufgaben werden hier Beobachtungseinheiten in Klassen eingeteilt. Der große Unterschied beim Clutering ist aber, dass nur mit der Beobachtungseinheit gelernt wird und **kein** Label für das Training verwendet wird. Einige Algorithmen erwarten, dass die Anzahl der Label vorgegeben wird, aber alle finden dann die Kategorien selbständig.
 
-Also unter Clustering verstehen wir die automatische _Einteilung von Beobachtungseinheiten in Kategorien ohne Labeldaten_.
+**Definition**: Unter Clustering verstehen wir die automatische _Einteilung von Beobachtungseinheiten in Kategorien ohne Labeldaten_.
 
 ## Clustering Anwendung
 
@@ -65,15 +65,17 @@ Erkennung von Objekten die von einer Norm abweichen, z.B. ist das Bild einer Leb
 
 ## K-Means Algorithmus
 
-Einer der bekanntesten und schnellsten Algorithmen für Clustering ist _K-Means_. Es hat als Eingabe nur die Anzahl $k$ der Cluster. Hier bietet sich $k=5$ an.
+Einer der bekanntesten und schnellsten Algorithmen für Clustering ist _K-Means_. Es hat als Eingabe nur die Anzahl $k$ der Cluster.
 
-![Géron, Aurélien. "Hands-on machine learning with scikit-learn and tensorflow" ](images/cluster_unlabeled.png) width=200px }
+#### Beispiel: Hier bietet sich $k=5$ an.
+
+![Géron, Aurélien. "Hands-on machine learning with scikit-learn and tensorflow" ](images/cluster_unlabeled.png){ width=500px }
 
 ## K-Means Algorithmus, Ergebnis
 
 Ergebnis sind 5 Zentren der Cluster. Aus diesen kann ein sogenanntes _Voronoi Diagramm_ erstellt werden. Das Voronoi Diagramm stellt die Region da in der die Punkte minimalen Abstand zum nächsten Zentrum haben.
 
-![Géron, Aurélien. "Hands-on machine learning with scikit-learn and tensorflow" ](images/cluster_labeled.png) width=200px }
+![Géron, Aurélien. "Hands-on machine learning with scikit-learn and tensorflow" ](images/cluster_labeled.png){ width=500px }
 
 ## K-Means Algorithmus
 
@@ -81,31 +83,31 @@ Ergebnis sind 5 Zentren der Cluster. Aus diesen kann ein sogenanntes _Voronoi Di
 
 1. Wähle zufällig $k$ verschiedene initiale Zentren $Z_i^{(0)}$ für $i = 1,...,k$.
 
-für $s = 0,...,\infty$:
+für $s = 1,...,\infty$:
 
 2. Zuweisungsschritt: bestimme für jede Beobachtungseinheit $x$ von $X$ das Zentrum $Z_i^{(s)}$ mit dem geringsten Abstand und weise ihnen dem Cluster $i$ zu.
 3. Updateschritt: für alle Beobachtungseinheiten im Cluster $i$ bestimme das neue Zentrum $Z_i^{(s+1)}$ als Schwerpunkt alle dem Cluster zugewiesenen Punkte.
 4. Abbruch: wenn sich die neu bestimmten Zentren zum Schritt davor nicht mehr signifikant ändern, dann breche ab.
 
-Eine Metrik zur Beurteilung der Qualität der Lösung ist die _Inertia_ (Trägheit) der Lösung und ist definiert als _Summe der (quadrierten) Abstände der Beobachtungseinheiten zum jeweils nächsten Cluster_. Desweiteren ist es wichtig die Daten vorher zu skalieren um die Performance zu verbessern.
+## Hinweise zu Kmeans
+
+- Eine Metrik zur Beurteilung der Qualität der Lösung ist die _Inertia_ (Trägheit) der Lösung und ist definiert als _Summe der (quadrierten) Abstände der Beobachtungseinheiten zum jeweils nächsten Cluster_.
+- Desweiteren ist es wichtig die Daten vorher zu skalieren, KMeans reagiert stark auf Skalierung.
 
 ## K-Means Algorithmus, Visualisierung
 
-![Géron, Aurélien. "Hands-on machine learning with scikit-learn and tensorflow" ](images/cluster_moving.png) height=100px }
+![Géron, Aurélien. "Hands-on machine learning with scikit-learn and tensorflow" ](images/cluster_moving.png){ height=300px }
 
 ## K-Means Algorithmus, Wahl der Zentren
 
 #### Qualität hängt stark von den initialen Zentren ab
 
-![Géron, Aurélien. "Hands-on machine learning with scikit-learn and tensorflow" ](images/cluster_unlucky_init.png) width=200px }
+![Géron, Aurélien. "Hands-on machine learning with scikit-learn and tensorflow" ](images/cluster_unlucky_init.png){ width=500px }
 
-#### Mögliche Lösung
+#### Mögliche Lösungen
 
-Algorithmus mehrfach laufen lassen und die beste Lösung wählen (mit geringstem Inertia).
-
-#### Bessere Lösung
-
-Initiale Zentren besser wählen $\rightarrow$ _K-Means++_ (nicht hier)
+- Algorithmus mehrfach laufen lassen und die beste Lösung wählen (mit geringstem Inertia).
+- Initiale Zentren besser wählen $\rightarrow$ _K-Means++_ (nicht hier)
 
 ## K-Means Algorithmus, Wahl der von $k$
 
@@ -113,21 +115,21 @@ Initiale Zentren besser wählen $\rightarrow$ _K-Means++_ (nicht hier)
 
 Wenn uns die richtige Anzahl der Cluster unbekannt ist und nur raten, dann ist das Clustering ineffektiv sein.
 
-![Géron, Aurélien. "Hands-on machine learning with scikit-learn and tensorflow" ](images/cluster_number_of_clusters.png) width=200px }
+![Géron, Aurélien. "Hands-on machine learning with scikit-learn and tensorflow" ](images/cluster_number_of_clusters.png){ width=500px }
 
 <!-- ## K-Means Algorithmus, Wahl der von $k$ -->
 
 <!-- #### Was ist wenn wir den Anzahl der Zentren nicht kennen? -->
 
-<!-- ![Géron, Aurélien. "Hands-on machine learning with scikit-learn and tensorflow" ](images/cluster_number_of_clusters.png) width=200px } -->
+<!-- ![Géron, Aurélien. "Hands-on machine learning with scikit-learn and tensorflow" ](images/cluster_number_of_clusters.png) width=500px } -->
 
 ## K-Means Algorithmus, Wahl der von $k$ cont'd
 
 Es gibt mehrere Möglichkeiten die Anzahl der Cluster zu bestimmen
 
-#### Wendepunktmethode: für den Plot der Inertias wähle den Wendepunkt als Anzahl der Cluster
+#### Wendepunktmethode: wähle den Wendepunkt des Inertia Plot als Anzahl der Cluster
 
-![Géron, Aurélien. "Hands-on machine learning with scikit-learn and tensorflow" ](images/cluster_elbow.png) width=200px }
+![Géron, Aurélien. "Hands-on machine learning with scikit-learn and tensorflow" ](images/cluster_elbow.png){ width=500px }
 
 Dieses Methode ist auch Ellenbogen (Elbow) Kriterium bekannt. Es gibt auch noch weitere Methoden wie z.B. den Silhoutte Score.
 
@@ -145,6 +147,12 @@ Es gibt aber auch einige Nachteile:
 ## Die Grenzen von K-Means, cont'd
 
 ![Géron, Aurélien. "Hands-on machine learning with scikit-learn and tensorflow" ](images/kmeans_limit.png){ width=500px }
+
+## Andere Clustering Algorithmen
+
+Es gibt eine Vielzahl anderer Clustering Algorithmen, z.B. DBSCAN die z.B mit länglichen Regionen gut umgehen können (nicht hier).
+
+![Géron, Aurélien. "Hands-on machine learning with scikit-learn and tensorflow" ](images/clustering_dbscan.png){ width=500px }
 
 ## Semi-Supervised Learning
 
