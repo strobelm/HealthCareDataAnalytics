@@ -26,6 +26,19 @@ classoption:
 - Pooling
 - Deep Convolution Neural Networks
 
+## Deep Learning
+
+- Neuronalen Netze bestanden für uns bis jetzt aus wenigen und sehr ähnlichen Layern
+- Deep Learning ändert den Aufbau von neuronalen Netzen so, dass
+  - viel mehr Layer verwendet werden
+  - Layer nicht mehr notwendigerweise vollständig mit dem vorherigen bzw. nachfolgenden verbunden sind
+- Deep Learning hat in vielen Bereichen zu starken Sprüngen in der Leistungsfähigkeit geführt
+  - Bildverarbeitung (z.B. Convolutional Neural Networks)
+  - Spracherkennung (z.B. Recurrent Neural Network)
+  - Unsupervised Learning (z.B. Autoencoder)
+  - Strategie u.a. in Spielen (z.B. Reinforced Learning)
+- Wir schauen uns heute Convolutional Neural Networks an
+
 ## Der Visuelle Cortex
 
 - Die Verarbeitung von Bildern im menschlichen Gehirn findet im _Visuellen Cortex_, einem Bereich des Gehirn statt
@@ -40,6 +53,8 @@ classoption:
 - Zudem gibt es verschieden große receptive fields und somit reagieren manche Neuronen auf _low level_ Details (Linien, Kurven ...) und andere auf komplexere _high level_ Formen
 - Diese Beobachtungen haben zur Vermutung geführt, dass die high level Neuronen auf dem Input der low level Neuronen basieren
 - Schlussendlich hat dies zur Idee von _convolutional neural networks_ geführt
+
+![Géron, Aurélien. "Hands-on machine learning with scikit-learn and tensorflow"](images/01_houses.png){ height=140px }
 
 ## Convolution (Faltung)
 
@@ -58,7 +73,7 @@ classoption:
   I^{*}(x,y) = \sum_{i=1}^{n} \sum_{j=1}^{n} I(x-i+a,\; y-j+a) k(i,j)
   $$
 
-- Der Gaußfilterkern sieht z.B. so aus und stellt im geglätteten Bild ein Pixel als Mittelwert der Umgebung dar
+- Ein $3\times 3$ Gaußfilterkern stellt im Output-Bild $I^{*}$ ein Pixel als Mittelwert der Umgebung dar
   $$
   k(x,y) =
   \frac{1}{9}   \cdot
@@ -72,9 +87,9 @@ classoption:
 ## CNN Layer
 
 - Diese Faltungen können als Layer in ein NN eingebaut werden
-- Neuronen in diesem Netzwerk sind dann nur mit Teilen des vorhergehenden Convolution Layer verbunden
-- Das Netz lernt im ersten Layer dann die low level Details
-- Diese Low Level features werden zu komplexeren Strukturen zusammen gesetzt und diese wiederum im nächsten Layer in noch komplexere Strukturen usw...
+- Neuronen in diesem Netzwerk sind dann nur mit Teilen des vorhergehenden Convolution Layer verbunden (local receptive field)
+- Das Netz lernt im ersten Layer dann die Low Level Details
+- Diese Low Level Features werden im nächsten Layer zu komplexeren Strukturen zusammen gesetzt und diese wiederum im nächsten Layer in noch komplexere Strukturen usw...
 
 ![Géron, Aurélien. "Hands-on machine learning with scikit-learn and tensorflow" ](images/02_conv.png){ height=150px }
 
@@ -89,7 +104,7 @@ classoption:
 
 ## Dimensionsreduktion mit Strides
 
-- Um die Dimension des Bildes zu verkleinern kann der Filter einen Versatz (_Stride_) haben
+- Um die Dimension des Bildes zu verkleinern kann ein Convolutional Layer einen Versatz (_Stride_) größer als 1 haben
 - Hierbei wird ein größerer Abstand zwischen den receptive fields angesetzt
 
 **Beispiel**: Input Layer $5 \times 7 \rightarrow 3 \times 4$ Layer mit einem $3 \times 3$ receptive field und einem Stride von 2
@@ -105,10 +120,15 @@ classoption:
 
 ## Stapel von Feature Maps
 
-- Ein Convolutional kann viele Kernel und somit auch viele Feature Maps haben
-- Die Gewichte sind aber für alle Feature Maps gleich und werden gleichzeitig trainiert
+- Ein Convolutional Layer kann viele Faltungskerne und somit auch viele Feature Maps beinhalten
+- Jede Feature Map kann unterschiedliche Faltungskerne lernen
+- Die Gewichte sind aber für alle Feature Maps gleich (Layer Gewicht)
 
-![Géron, Aurélien. "Hands-on machine learning with scikit-learn and tensorflow" ](images/06_conv_layers.png){ height=250px }
+![Géron, Aurélien. "Hands-on machine learning with scikit-learn and tensorflow" ](images/06_conv_layers.png){ height=200px }
+
+## Stapel von Feature Maps, Visualisierung der Gewichte von VGG Net
+
+![https://machinelearningmastery.com/how-to-visualize-filters-and-feature-maps-in-convolutional-neural-networks/](images/Plot-of-the-First-6-Filters-from-VGG16-with-One-Subplot-Per-Channel-1024x768.png){ height=300px }
 
 ## Pooling
 
