@@ -145,3 +145,49 @@ Da ausgehend von der Fakten Tabelle sich mehrere Dimensions Tabellen sich Sternf
 ## Stern- und Schneeflocken Schemas, Visualisierung
 
 ![Kleppmann, M. (2017). Designing data-intensive applications: The big ideas behind reliable, scalable, and maintainable systems. " O'Reilly Media, Inc.".](images/stern_schneefl.png){ height=300px }
+
+## Speicherung in Spalten
+
+Um möglichst effizient und mit SIMD Vektorisierung Aggregate wie SUM, MIN, MAX, AVG, COUNT zu berechnen bietet es sich an die Daten Spaltenweise statt zeilenweise zu speichern
+
+![Kleppmann, M. (2017). Designing data-intensive applications: The big ideas behind reliable, scalable, and maintainable systems. " O'Reilly Media, Inc.".](images/colmun.png){ height=300px }
+
+## Data Cubes
+
+- Anhand verschiedener Dimensionen der Tabellen können Zeilen oder Spaltenweise z.B. SUM, MIN, MAX, AVG COUNT vorberechnet werden.
+- Hierbei sprechen wir von _Data Cubes_ oder auch _OLAP cubes_. Die Dimensionen sind natürlich nicht (wie im Beispiel) auf zwei Dimensionen beschränkt.
+- Um möglichst effizient und mit SIMD Vektorisierung Aggregate wie SUM, MIN, MAX, AVG COUNT zu berechnen bietet es sich an die Daten Spaltenweise statt zeilenweise zu speichern
+
+## Data Cubes, Visualisierung
+
+![Kleppmann, M. (2017). Designing data-intensive applications: The big ideas behind reliable, scalable, and maintainable systems. " O'Reilly Media, Inc.".](images/data_cube.png){ height=300px }
+
+## Big Data
+
+#### Big Data Definition (ORACLE)
+
+Unter Big Data versteht man Daten, die in großer Vielfalt, in großen Mengen und mit noch höherer Geschwindigkeit anfallen. Dies ist auch als die drei V-Begriffe bekannt (Variety, Volume, Velocity).
+
+## Big Data, Volumen
+
+Die Menge an Daten ist wichtig. Bei Big Data müssen Sie große Mengen an unstrukturierten Daten mit geringer Dichte verarbeiten. Dabei kann es sich um Daten mit unbekanntem Wert handeln, z. B. Daten-Feeds von Twitter, Clickstreams von einer Webseite oder mobilen App oder Daten von Gerätesensoren. Für einige Unternehmen können das etliche Terabytes an Daten sein. Für andere Hunderte von Petabytes.
+
+## Big Data, Velocity (Geschwindigkeit)
+
+Die Geschwindigkeit ist die Schnelligkeitsrate, mit der Daten empfangen werden und mit der (vielleicht) auf sie reagiert wird. Im Normalfall fließt die höchste Geschwindigkeit von Daten direkt in den Speicher und wird nicht auf eine Festplatte geschrieben. Einige internetfähige, intelligente Produkte arbeiten in Echtzeit oder beinahe in Echtzeit. Für sie sind Auswertungen und Aktionen in Echtzeit erforderlich.
+
+## Big Data, Variety (Vielfalt)
+
+Vielfalt bezieht sich auf die zahlreichen verfügbaren Datentypen. Traditionelle Datentypen waren strukturiert und ideal für relationale Datenbanken geeignet. Durch die Zunahme von Big Data gibt es nun neue, unstrukturierte Datentypen. Unstrukturierte und semistrukturierte Datentypen wie Text, Audio und Video erfordern zusätzliche Vorabverarbeitung, um die Bedeutung und die unterstützenden Metadaten zu gewinnen.
+
+## Anwendungen von Big Data
+
+#### Einige Anwendungen die unter Big Data fallen sind
+
+- Large Hadron Collider am CERN $\rightarrow$ dieser hat bereits mehrere hundert Petabyte an Daten generiert
+- Genom Daten wie z.B. GeneBank
+- Der Google Suchindex
+
+## Nächstes Vorlesung
+
+In der nächsten Vorlesung beschäftigen wir und mit Big Data Software, insbesondere für ETL Prozesse. Hierbei gehen wir auf den MapReduce Algorithmus ein und seine Implementierung bzw. Fortentwicklung. Dazu sehen wir insbesondere Apache Spark in Aktion.
