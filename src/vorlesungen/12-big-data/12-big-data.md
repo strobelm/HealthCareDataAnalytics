@@ -26,10 +26,7 @@ classoption:
 - Data Warehousing
   - OLAP vs OLTP
   - Sterne und Schneeflocken
-- Batch Processing of Big Data
-  - Was ist Big Data?
-  - MapReduce
-  - Hadoop / Spark
+- Intro zu Big Data
 
 ## Erinnerung: Relationale Datenbanken
 
@@ -54,7 +51,7 @@ classoption:
 
 ## Online Transaction Processing (OLTP)
 
-Das typische Zugriffsmuster von System wie relationalen Datenbanken nennen wir _Online Transaction Processing (OLAP)_
+Ein Datenbank-Zugriffsparadigma bei denen Transaktionen ad-hoc und ohne größere Zeitverzögerung durchgeführt nennen wir _Online Transaction Processing (OLAP)_.
 
 |        Eigenschaft         |      Online Transaction Processing System (OLTP)      |
 | :------------------------: | :---------------------------------------------------: |
@@ -76,9 +73,9 @@ Das typische Zugriffsmuster von System wie relationalen Datenbanken nennen wir _
 
 ## Online Analytics Processing (OLAP)
 
-Systeme die auf Analytics optimiert sind nennen wir **Online Analytics Processing (OLAP)**
+Ein Datenbank-Zugriffsparadigma bei denen Transaktionen komplexe und / oder zeitintensive Anfragen und Berechnungen durchgeführt werden nennen wir _Online Analytical Processing System (OLAP)_
 
-|        Eigenschaft         |       Online Transaction Processing System (OLAP)       |
+|        Eigenschaft         |       Online Analytical Processing System (OLAP)        |
 | :------------------------: | :-----------------------------------------------------: |
 |  Häufigste Leseoperation   |     Aggregation über eine große Anzahl von Records      |
 | Häufigste Schreiboperation |        Bulk / Batch Processing oder Event Stream        |
@@ -89,6 +86,8 @@ Systeme die auf Analytics optimiert sind nennen wir **Online Analytics Processin
 ## Medizinische Datenbanken
 
 #### In medizinischen Einrichtungen sind Zahlreiche Datenbanken vorhanden
+
+In der Medizin gibt es zahlreiche OLTP Systeme wie z.B.
 
 - Bilder (PACS)
 - Krankenhausinformationsystem (KIS)
@@ -111,17 +110,17 @@ Systeme die auf Analytics optimiert sind nennen wir **Online Analytics Processin
 
 ## Das Data Warehouse
 
-- Data Warehouses sind Systeme die aus aus verschiedenen Datenquellen, meist OLTP Systeme speisen
+- Data Warehouses sind Systeme die aus aus verschiedenen Datenquellen, meist OLTP Systeme, speisen
 - Die Daten werden über den **Extract-Transform-Load (ETL)** aus den OLTP System geladen
   - **Extract**: lädt die Daten aus den OLTP Systemen
   - **Transform** : die Daten werden in für Analytics optimierte Datenformate überführt
   - **Load**: die Daten werden ins das Data Warehouse geladen
 - Die ETL Prozesse können _periodisch_ (z.B. täglicher DB dump) oder als _Stream_ stattfinden
-- Aufgrund der Flexibilität von SQL benutzen Data Warehouses diese Sprache ebenfalls
+- Aufgrund der Flexibilität von SQL benutzen Data Warehouses meist ebenso SQL um Anfragen durchzuführen
 
 ## Das Data Warehouse, Visualisierung
 
-![Kleppmann, M. (2017). Designing data-intensive applications: The big ideas behind reliable, scalable, and maintainable systems. " O'Reilly Media, Inc.".](images/etl.png){ height=300px }
+![Kleppmann, M. (2017). Designing data-intensive applications: The big ideas behind reliable, scalable, and maintainable systems.](images/etl.png){ height=300px }
 
 ## Stern- und Schneeflocken Schemas
 
@@ -144,29 +143,32 @@ Da ausgehend von der Fakten Tabelle sich mehrere Dimensions Tabellen sich Sternf
 
 ## Stern- und Schneeflocken Schemas, Visualisierung
 
-![Kleppmann, M. (2017). Designing data-intensive applications: The big ideas behind reliable, scalable, and maintainable systems. " O'Reilly Media, Inc.".](images/stern_schneefl.png){ height=300px }
+![Kleppmann, M. (2017). Designing data-intensive applications: The big ideas behind reliable, scalable, and maintainable systems.](images/stern_schneefl.png){ height=300px }
 
 ## Speicherung in Spalten
 
 Um möglichst effizient und mit SIMD Vektorisierung Aggregate wie SUM, MIN, MAX, AVG, COUNT zu berechnen bietet es sich an die Daten Spaltenweise statt zeilenweise zu speichern
 
-![Kleppmann, M. (2017). Designing data-intensive applications: The big ideas behind reliable, scalable, and maintainable systems. " O'Reilly Media, Inc.".](images/colmun.png){ height=300px }
+![Kleppmann, M. (2017). Designing data-intensive applications: The big ideas behind reliable, scalable, and maintainable systems.](images/colmun.png){ height=250px }
 
 ## Data Cubes
 
-- Anhand verschiedener Dimensionen der Tabellen können Zeilen oder Spaltenweise z.B. SUM, MIN, MAX, AVG COUNT vorberechnet werden.
+- Die verschiedenen Fact Table können als (hochdimensionaler) Würfel interpretiert werden, bei dem die Faktentabellen die Seiten des Würfel darstellen.
 - Hierbei sprechen wir von _Data Cubes_ oder auch _OLAP cubes_. Die Dimensionen sind natürlich nicht (wie im Beispiel) auf zwei Dimensionen beschränkt.
+- Anhand verschiedener Dimensionen der Tabellen können Zeilen oder Spaltenweise z.B. SUM, MIN, MAX, AVG COUNT vorberechnet werden.
 - Um möglichst effizient und mit SIMD Vektorisierung Aggregate wie SUM, MIN, MAX, AVG COUNT zu berechnen bietet es sich an die Daten Spaltenweise statt zeilenweise zu speichern
 
 ## Data Cubes, Visualisierung
 
-![Kleppmann, M. (2017). Designing data-intensive applications: The big ideas behind reliable, scalable, and maintainable systems. " O'Reilly Media, Inc.".](images/data_cube.png){ height=300px }
+![Kleppmann, M. (2017). Designing data-intensive applications: The big ideas behind reliable, scalable, and maintainable systems.](images/data_cube.png){ height=300px }
 
 ## Big Data
 
-#### Big Data Definition (ORACLE)
+#### Definition: Big Data
 
-Unter Big Data versteht man Daten, die in großer Vielfalt, in großen Mengen und mit noch höherer Geschwindigkeit anfallen. Dies ist auch als die drei V-Begriffe bekannt (Variety, Volume, Velocity).
+Unter _Big Data_ versteht man Daten, die in großer Vielfalt, in großen Mengen und mit noch höherer Geschwindigkeit anfallen. Dies ist auch als die drei V-Begriffe bekannt (Variety, Volume, Velocity).
+
+Quelle: https://www.oracle.com/de/big-data/what-is-big-data/
 
 ## Big Data, Volumen
 
@@ -191,3 +193,8 @@ Vielfalt bezieht sich auf die zahlreichen verfügbaren Datentypen. Traditionelle
 ## Nächstes Vorlesung
 
 In der nächsten Vorlesung beschäftigen wir und mit Big Data Software, insbesondere für ETL Prozesse. Hierbei gehen wir auf den MapReduce Algorithmus ein und seine Implementierung bzw. Fortentwicklung. Dazu sehen wir insbesondere Apache Spark in Aktion.
+
+## Referenzen
+
+- Kleppmann, M. (2017). Designing data-intensive applications: The big ideas behind reliable, scalable, and maintainable systems. " O'Reilly Media, Inc.".
+- https://www.oracle.com/de/big-data/what-is-big-data/
