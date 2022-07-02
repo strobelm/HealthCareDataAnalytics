@@ -51,7 +51,7 @@ classoption:
 
 ## Online Transaction Processing (OLTP)
 
-Ein Datenbank-Zugriffsparadigma bei denen Transaktionen ad-hoc und ohne größere Zeitverzögerung durchgeführt nennen wir _Online Transaction Processing (OLAP)_.
+Ein Datenbank-Zugriffsparadigma bei denen Transaktionen ad-hoc und ohne größere Zeitverzögerung durchgeführt nennen wir _Online Transaction Processing (OLTP)_.
 
 |        Eigenschaft         |      Online Transaction Processing System (OLTP)      |
 | :------------------------: | :---------------------------------------------------: |

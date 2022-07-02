@@ -1,0 +1,9 @@
+OBX|1|NM|^Body Height||1.80|m^Meter^ISO+|||||F
+OBX|1|NM|^Body Height||1.50|m^Meter^ISO+|||||F
+OBX|1|NM|^Body Height||1.70|m^Meter^ISO+|||||F
+OBX|1|NM|^Body Height||1.20|m^Meter^ISO+|||||F
+OBX|1|NM|^Body Height||1.92|m^Meter^ISO+|||||F
+OBX|1|NM|^Body Height||1.30|m^Meter^ISO+|||||F
+OBX|1|NM|^Body Height||1.40|m^Meter^ISO+|||||F
+OBX|1|NM|^Body Height||2.01|m^Meter^ISO+|||||F
+OBX|1|NM|^Body Height||1.50|m^Meter^ISO+|||||F
