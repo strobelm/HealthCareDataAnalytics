@@ -32,7 +32,7 @@ classoption:
 ## Online Services / Batch Processing / Stream Processing
 
 - Daten Anwendungen können unterschiedliche Anforderungen haben, letzte Woche haben wir OLTP und OLAP Systeme gesehen
-- Wir unterscheiden drei verschiedene Systeme Arten
+- Datenverarbeitungssysteme lassen sich in drei Kategorien aufteilen
   - Online Services
   - Batch Processing
   - Stream Processing
@@ -66,11 +66,11 @@ classoption:
 
 ## UNIX Philosophie
 
-Die UNIX Philosophie nach McIlroy, dem Erfinder u.a. der UNIX Pipeline vom Jahr 1964
+#### Die UNIX Philosophie nach McIlroy, dem Erfinder u.a. der UNIX Pipeline vom Jahr 1964
 
-> Schreibe Computerprogramme so, dass sie nur eine Aufgabe erledigen und diese gut machen.
-> Schreibe Programme so, dass sie zusammenarbeiten.
-> Schreibe Programme so, dass sie Textströme verarbeiten, denn das ist eine universelle Schnittstelle.
+- Schreibe Computerprogramme so, dass sie nur eine Aufgabe erledigen und diese gut machen.
+- Schreibe Programme so, dass sie zusammenarbeiten.
+- Schreibe Programme so, dass sie Textströme verarbeiten, denn das ist eine universelle Schnittstelle.
 
 ## UNIX Philosophie, Beispiel
 
@@ -145,7 +145,7 @@ WHERE gender = 'female'
 GROUP BY observation_month;
 ```
 
-### MapReduce Beispiel: wie viel Patientinnen wurden jeweils in einem Monat behandelt?
+## MapReduce Beispiel: wie viel Patientinnen wurden jeweils in einem Monat behandelt?
 
 ### Beispiel: wie viel Patientinnen wurden jeweils in einem Monat behandelt?
 
