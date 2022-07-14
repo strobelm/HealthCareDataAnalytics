@@ -15,10 +15,12 @@ date:
 
 #### Matrikelnummer:
 
+#### Unterschrift:
+
 ### Rahmenbedingungen
 
 - Die Klausur dauert 90 Minuten.
-- Die Klausur enthält 6 Aufgaben auf 18 Seiten. Bitte überprüfen Sie ob der Klausurbogen vollständig ist.
+- Die Klausur enthält 6 Aufgaben auf 17 Seiten. Bitte überprüfen Sie ob der Klausurbogen vollständig ist.
 - Jede Aufgabe wird mit maximal 10 Punkten bewertet.
 - Erlaubte Hilfsmittel: ein doppelseitig beschriebenes Din-A4 Blatt und ein (nicht programmierbarer) Taschenrechner.
 - Weitere Hilfsmittel sind nicht erlaubt.
@@ -29,15 +31,15 @@ date:
 
 #### Beantworten Sie die unten stehenden Fragen mit einer kurzen Antwort.
 
-1. Was ist der Unterschied zwischen Trainings Set und Test Set?
-2. Wofür dienen Label bei Supervised Learning?
-3. Nennen Sie ein Beispiel für ein Unsupervised Learning.
+1. Was ist der Unterschied zwischen Trainingsdatensatz und Testdatensatz?
+2. Definieren Sie Supervised Learning.
+3. Definieren Sie Clustering.
 4. Wie viel Prozent der Daten sollten in etwa für das Test Set beiseite gelegt werden?
 5. Was ist der Unterschied zwischen Klassifikation und Regression?
 6. Was verstehen wir unter Underfitting?
 7. Was was verstehen wir unter Overfitting?
-8. Was verstehen wir unter Regularisierung eines Modells?
-9. Was ist Semi-Supervised Learning?
+8. Definieren Sie den Bias eines Machine Learning Modells.
+9. Definieren Sie die Varianz eines Machine Learning Modells.
 10. Was ist ein Data Warehouse?
 
 \newpage
@@ -147,6 +149,17 @@ def quicksort(arr):
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 >>> print(quicksort([3, 6, 8, 10, 1, 2, 1]))
 [1, 1, 2, 3, 6, 8, 10]
 ```
@@ -170,23 +183,29 @@ quickSort [a | a <- xs, a >= x]  -- Sortiere die rechte Seite
 
 ## a) Precision / Recall Tradeoff
 
+Gegeben sei ein binärer Klassifikator.
+
 1. Wie ist Precision definiert? Wie kann Precision interpretiert werden?
 2. Wie ist Recall definiert? Wie kann Recall interpretiert werden?
 3. Was versteht man unter dem Precision- und Recall Trade-off? Interpretieren Sie hiefür das Schaubild aus der Vorlesung.
 
 ![](images/precision-recall-2-curves.png){ width=\pagewidth }
 
-4. Sie haben einen Binären Klassifikator trainiert, der 1 ausgibt wenn eine Person krank ist und 0 wenn die Person gesund ist. In $y_{predicted}$ finden Sie die Vorhersagen des Algorithmus und in $y_{true}$ finden Sie den korrekten Wert.
+4. Sie haben einen binären Klassifikator trainiert, der 1 (= positiv) ausgibt wenn eine Person krank ist und 0 (= negativ) wenn die Person gesund ist. In $y_{predicted}$ finden Sie die Vorhersagen des Algorithmus und in $y_{true}$ finden Sie den korrekten Wert.
 
-$y_{predicted}= [0, 1, 1, 0, 1, 1]$
-
-$y_{true} = [0, 1, 0, 0, 1, 0]$
+$$
+\begin{aligned}
+y_{predicted} &= [0, 1, 1, 0, 1, 1] \\
+y_{true} &= [0, 1, 0, 0, 1, 0]
+\end{aligned}
+$$
 
 Berechnen Sie folgende Werte
 
-- True Positive (TP)
-- False Positive (FP)
-- False Negative (FN)
+- Richtig positiv / True Positive (TP)
+- Falsch positiv / False Positive (FP)
+- Falsch negativ / False Negative (FN)
+
 - Precision
 - Recall
 
@@ -198,9 +217,9 @@ Berechnen Sie folgende Werte
 ## a) Verständnis
 
 1. Was verstehen wir unter einer Data Pipeline?
-2. Was ist der Unterschied zwischen einer kategorischen und einer numerischen Features? Nennen Sie jeweils ein Beispiel.
-3. Nennen Sie 3 Schritte die Sie in einer numerischen Data Pipeline ausführen sollten. Begründen Sie Ihre Antwort.
-4. Nennen Sie 3 Schritte die Sie in einer kategorischen Data Pipeline ausführen sollten. Begründen Sie Ihre Antwort.
+2. Was ist der Unterschied zwischen einem kategorischen und einem numerischen Feature? Nennen Sie jeweils ein Beispiel eines kategorischen und eines numerischen Features.
+3. Nennen Sie 2 Schritte die Sie in einer numerischen Data Pipeline ausführen sollten. Begründen Sie Ihre Antwort.
+4. Nennen Sie 2 Schritte die Sie in einer kategorischen Data Pipeline ausführen sollten. Begründen Sie Ihre Antwort.
 
 \pagebreak
 
@@ -208,7 +227,7 @@ Berechnen Sie folgende Werte
 
 Gegeben seien folgen Daten die wir in einen Pandas Dataframe mit dem Variablennamen `heart_data` laden:
 
-![](images/health_data.png){ width=\pagewidth }
+![](images/health_data.png){ width=600px }
 
 Ergänzen Sie den unten stehenden Python 3 Code um sowohl eine kategorische als auch eine numerische Pipeline zu bauen und diese dann zu einer Gesamtpipeline zusammenzusetzen.
 
@@ -227,7 +246,9 @@ from sklearn.impute import SimpleImputer
 heart_data = pd.read_csv("data/heart_unclean.csv")
 
 ordinal_features =
+
 nominal_features =
+
 numeric_features =
 
 numeric_transformer = Pipeline(
@@ -277,9 +298,10 @@ full_pipeline = ColumnTransformer(
 
 In Schaubild A ist auf der x-Achse die Modell Komplexität aufgezeichnet und auf der y-Achse der Prediction Error, also der Fehler den das Modell macht.
 
-- Welche der Kurven ist wahrscheinlicher der Trainingsfehler und welche ist der Validierungsfehler? Geben Sie dies im Diagramm an, indem Sie die gepunkteten Linien ausfüllen.
-- In welchen Bereichen des Diagramms sind Bias und Varianz niedrig bzw. hoch? Geben Sie deutlich an auf dem Diagramm mit vier Beschriftungen: "geringe Varianz", "hohe Varianz", "geringer Bias", "hoher Bias".
-- In welchen Bereich underfittet beziehungsweise overfitted das Modell? Geben Sie dies im Diagramm mit "Overfitting" und "Underfitting" an.
+1. Welche der Kurven ist wahrscheinlicher der Trainingsfehler und welche ist der Validierungsfehler? Geben Sie dies im Diagramm an, indem Sie die gepunkteten Linien ausfüllen.
+2. In welchen Bereichen des Diagramms sind Bias und Varianz niedrig bzw. hoch? Geben Sie deutlich an auf dem Diagramm mit vier Beschriftungen: "geringe Varianz", "hohe Varianz", "geringer Bias", "hoher Bias".
+3. In welchen Bereich underfittet beziehungsweise overfitted das Modell? Geben Sie dies im Diagramm mit "Overfitting" und "Underfitting" an.
+4. Wo würde Early Stopping das Training anhalten? Zeichnen Sie die Stelle im Diagramm ein.
 
 \pagebreak
 
@@ -326,6 +348,9 @@ model = keras.models.Sequential([
 
 
 
+
+
+
   Dense(1000,activation='softmax')
 ])
 ```
@@ -334,11 +359,11 @@ model = keras.models.Sequential([
 
 # Aufgabe 6: Decision Tree und Random Forrest
 
-1. In der Vorlesung haben wir einige (positive und negative)) Eigenschaften von Decision Trees gesehen. Nennen Sie 4 dieser Eigenschaften.
+1. In der Vorlesung haben wir einige (positive und negative) Eigenschaften von Decision Trees gesehen. Nennen Sie 4 dieser Eigenschaften.
 2. Was verstehen wir unter dem Gini Koeffizient? Wie interpretieren Sie Gini 0.1 und Gini 0.5?
-3. Wie kann ein Decision Tree Regularisiert werden?
-4. Erklären Sie das Konzept von Bagging und Boosting. Was ist der Unterschied?
-5. Wie werden Decision Trees konstruiert?
+3. Wie kann ein Decision Tree regularisiert werden?
+4. Erklären Sie das Konzept von Bagging und Pasting. Was ist der Unterschied?
+5. Wie werden Random Forest aus Decision Trees konstruiert?
 6. Betrachten Sie das Schaubild B. Welches Bilder zeigt einen Decision Tree und welches ein Random Forrest? Begründen Sie Ihre Antwort.
 
 ![Schaubild B](images/03_decision_trees_with_bagging.png){ width=\pagewidth }
