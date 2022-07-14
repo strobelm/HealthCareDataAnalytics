@@ -357,14 +357,14 @@ model = keras.models.Sequential([
 
 \newpage
 
-# Aufgabe 6: Decision Tree und Random Forrest
+# Aufgabe 6: Decision Tree und Random Forest
 
 1. In der Vorlesung haben wir einige (positive und negative) Eigenschaften von Decision Trees gesehen. Nennen Sie 4 dieser Eigenschaften.
 2. Was verstehen wir unter dem Gini Koeffizient? Wie interpretieren Sie Gini 0.1 und Gini 0.5?
 3. Wie kann ein Decision Tree regularisiert werden?
 4. Erklären Sie das Konzept von Bagging und Pasting. Was ist der Unterschied?
 5. Wie werden Random Forest aus Decision Trees konstruiert?
-6. Betrachten Sie das Schaubild B. Welches Bilder zeigt einen Decision Tree und welches ein Random Forrest? Begründen Sie Ihre Antwort.
+6. Betrachten Sie das Schaubild B. Welches Bilder zeigt einen Decision Tree und welches ein Random Forest? Begründen Sie Ihre Antwort.
 
 ![Schaubild B](images/03_decision_trees_with_bagging.png){ width=\pagewidth }
 
