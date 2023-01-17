@@ -24,3 +24,7 @@ There are two script:
 `script.sh`: builds the whole project once
 
 `watch.sh`: builds the whole project and watches for changes
+
+#### Lecture Notes
+
+You can find the PDFs of the Lectures on a specific deploy branch https://github.com/strobelm/HealthCareDataAnalytics/tree/HealthCareDataAnalytics-deploy/build
